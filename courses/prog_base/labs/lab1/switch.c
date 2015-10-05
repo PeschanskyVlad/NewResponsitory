@@ -1,8 +1,8 @@
-#include <math.h>
-
 int exec(int op, int a, int b) {
    int result;
-      int c;
+   int c;
+   //int i;
+  // int a1;
    if (op<0){
     c=b;
     b=a;
@@ -31,7 +31,16 @@ case 5:
     result=abs(a);
     break;
 case 6:
+       // result=a+b;
     result=pow(a,b);
+  /* a1=a;
+   i=1;
+   while(i<b){
+    a1=a1*a;
+    i++;
+   }
+   result=a1;*/
+   break;
 case 7:
 case 13:
 case 77:
@@ -68,6 +77,7 @@ default:
 if (op>100){
     result=-1;
 }
+
 
    return result;
 }
