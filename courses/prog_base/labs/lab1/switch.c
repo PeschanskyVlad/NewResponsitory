@@ -1,3 +1,4 @@
+#include <math.h>
 int exec(int op, int a, int b) {
    int result;
    int c;

@@ -1,3 +1,4 @@
+#include <math.h>
 double calc(double x, double y, double z)
  {
    double a;
