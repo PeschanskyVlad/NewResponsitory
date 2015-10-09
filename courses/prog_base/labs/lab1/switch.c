@@ -64,10 +64,37 @@ case 9:
     }
     break;
 case 10:
-    result=abs(a)*sizeof(abs(b)%8);
+    b=abs(b)%8;
+    switch(b){
+    case 0:
+        result=abs(a)*sizeof(char);
+        break;
+    case 1:
+        result=abs(a)*sizeof(signed char);
+        break;
+    case 2:
+        result=abs(a)*sizeof(short);
+        break;
+    case 3:
+        result=abs(a)*sizeof(unsigned int);
+        break;
+    case 4:
+        result=abs(a)*sizeof(long);
+        break;
+    case 5:
+        result=abs(a)*sizeof(unsigned long long);
+        break;
+    case 6:
+        result=abs(a)*sizeof(float);
+        break;
+    case 7:
+        result=abs(a)*sizeof(double);
+        break;
+
+    }
     break;
 case 11:
-   result=(9)*M_PI*cos((1)*a*b)/a;
+   result=9*M_PI*cos((1)*a*b)/a;
     break;
 default:
     result=(op % abs(a + 1)) + (op % abs(b + 1));
