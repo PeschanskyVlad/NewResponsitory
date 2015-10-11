@@ -40,23 +40,17 @@ for (i = 12; i < 64; i++){
 res = res + a[i] * pow(2, (-i + 11) + (-1022));
 }
 } else if (ste == 2047){
+
 for(i=63;i>0;i--){
+
 if(a[i]==1){
+
 ress=1;
+
 break;
 }
-if(ress>0){
-res=NAN;
 }
-}
-if(a[0]==1&&ress==0){
-res=-INFINITY;
-}
-if(a[0]==0&&ress==0){
-res=+INFINITY;
-}
-
-
+res= ress ? NAN : INFINITY;
 } else{
 for (i = 12; i < 64; i++){
 res = res + a[i] * pow(2, (-i + 11) + (ste - 1023));
@@ -64,7 +58,7 @@ res = res + a[i] * pow(2, (-i + 11) + (ste - 1023));
 res+= pow(2, (ste - 1023));
 
 }
-
+if(a[0]) res = -res;
 return res;
 
 
