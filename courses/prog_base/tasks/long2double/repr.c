@@ -40,7 +40,7 @@ res = res + a[i] * pow(2, (-i + 11) + (-1022));
 }
 } else if (ste == 2047){
 
-for(i=63;i>0;i--){
+for(i=12;i<64;i++){
 
 if(a[i]==1){
 
