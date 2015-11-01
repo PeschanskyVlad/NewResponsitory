@@ -3,7 +3,6 @@ char * process(char * resultStr, const char * textLines[],
     int i,j,r=0,r1=0;
 char  Alf[] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
 
-
     for (j=0;j<linesNum;j++){
         for(i=0;i<strlen(textLines[j]);i++){
 
@@ -13,6 +12,9 @@ char  Alf[] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
          if (i==strlen(textLines[j])-1&&strchr(Alf,textLines[j][i])>0){
                 r++;
          }
+if (i==0&&strchr(Alf,textLines[j][i])==0){
+    r--;
+}
 
         }
     }
@@ -29,6 +31,11 @@ char  Alf[] = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
          }
 
         }
+        if(strchr(Alf,extraStr[0])==0){
+            r1--;
+         }
+
+
         sprintf(resultStr, "%i %i", r, r1);
         return resultStr;
 
