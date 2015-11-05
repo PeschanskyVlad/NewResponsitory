@@ -40,9 +40,14 @@ int run(int moves[], int movesLen, int res[], int resLen){
                 brk=1;
                 break;
             case 2:
+                  if (LocRes>=0){
               res[LocRes]=0;
               LocRes--;
                stan=0;
+            }
+            else{
+                brk=1;
+            }
                break;
             case 3:
 
@@ -64,9 +69,14 @@ int run(int moves[], int movesLen, int res[], int resLen){
                break;
 
             case 1:
-                res[LocRes]=0;
-               LocRes--;
+                   if (LocRes>=0){
+              res[LocRes]=0;
+              LocRes--;
                stan=1;
+            }
+            else{
+                brk=1;
+            }
                break;
             case 2:
                 res[LocRes]=5;
