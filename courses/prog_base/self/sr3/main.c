@@ -25,9 +25,13 @@ printf("Enter L and M:");
     printf("\nOpenError\n");
    }else{
    fgets(text, 100, fp);
-   printf("\nElement L = %c\n",text[l]);
-printf("Element M = %c\n",text[m]);
+
+ for(i=l;i<=m;i++){
+    printf("%c",text[i]);
    }
+   }
+
+
 
 fclose (fp);
 
