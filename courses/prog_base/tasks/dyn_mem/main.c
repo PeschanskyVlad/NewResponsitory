@@ -21,6 +21,9 @@ while (*p != '\0'){
 
 printf("The number of punctuation: %i",*k);
 
+free(k);
+free(p);
+free(i);
 
 
     return 0;
