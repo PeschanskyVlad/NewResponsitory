@@ -151,9 +151,20 @@ char* ns_convert(char* number, unsigned int sourceBase, unsigned int destBase)
     integer_part=strtok(number,".");
 
     fractional_part=strtok(NULL,".");
+    if(integer_part==NULL||integer_part=='\0'){
+        return "\0";
+    }
+
+
+
+
 
     if(fractional_part==NULL||fractional_part=='\0'){
     fp=0;
+    }
+
+    if(fp==0&&strcmp(integer_part,"0")==0){
+        return "0";
     }
 
 
@@ -174,8 +185,10 @@ char* ns_convert(char* number, unsigned int sourceBase, unsigned int destBase)
     strcat(result1,result2);
     }
 
+    strcpy(number,result1);
 
-   return result1;
+
+   return number;
 
 }
 
@@ -189,8 +202,13 @@ char* convert(char *integer_part, unsigned int sourceBase, unsigned int destBase
     char c_v;
     char str1[5]="";
     char result_integer_part[100]="\0";
+    if(sourceBase==10){
+            result=atoi(integer_part);
+
+    }else{
     for(i=strlen(integer_part)-1;i>=0;i--){
         result+=char_to_int(integer_part[i])*pow(sourceBase,abs(i-strlen(integer_part)+1));
+    }
     }
 
     while(result!=0){
@@ -227,19 +245,18 @@ char i_p1;
     char str1[5]="";
 
 char r_result[15]=".";
+
+
+
 for(i=0;i<strlen(fractional_part);i++){
-
-
-
         result+=(1/pow((double)sourceBase,i+1))*char_to_int(fractional_part[i]);
 }
+
+
 
 for(i=0;i<12;i++){
     result*=destBase;
     i_p=result;
-    if(i_p==0){
-        break;
-    }
     c_v=int_to_char(i_p);
     str1[0]=c_v;
     strcat(r_result,str1);
