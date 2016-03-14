@@ -9,8 +9,9 @@ int size;
 
 plural_t * plural_new(int size, int *totalPos) {
     int i;
-    printf("Enter the number elements of the set:");
-    scanf("%i",&size);
+    printf("Number elements of the set: 10");
+    //scanf("%i",&size);
+    size=10;
    (*totalPos)=size;
     plural_t * pl = malloc(sizeof(struct plural_s));
     pl->plural = malloc(sizeof(int) * size);
@@ -25,10 +26,12 @@ plural_t * plural_new(int size, int *totalPos) {
 
 void plural_fill_range(plural_t * self, int *totalPos, int rangeStart, int rangeEnd) {
     int i;
-    printf("Enter start of range:");
-    scanf("%i",&rangeStart);
-     printf("Enter end of range:");
-    scanf("%i",&rangeEnd);
+    printf("Enter start of range: 2");
+    rangeStart=2;
+   // scanf("%i",&rangeStart);
+     printf("Enter end of range: 5");
+     rangeEnd=5;
+    //scanf("%i",&rangeEnd);
     int rangeLenght=rangeEnd-rangeStart;
     int a,b=rangeStart;
     if (self->size-(*totalPos) < rangeLenght){
@@ -48,8 +51,9 @@ void plural_fill_range(plural_t * self, int *totalPos, int rangeStart, int range
 
 void plural_addElement(plural_t * self, int *totalPos){
      int newElement;
-     printf("Enter new element:");
-     scanf("%i",&newElement);
+     printf("New element: 10");
+    // scanf("%i",&newElement);
+    newElement=10;
     self->plural[(*totalPos)]=newElement;
     (*totalPos)++;
 }
@@ -59,8 +63,9 @@ void plural_deleteElement(plural_t * self, int *totalPos){
     int deletedElementPos;
     int i;
     puts(" ");
-     printf("Enter position of deleted element:");
-     scanf("%i",&deletedElementPos);
+     printf("Position of deleted element: 0");
+    // scanf("%i",&deletedElementPos);
+    deletedElementPos=0;
      for(i=deletedElementPos;i<(*totalPos);i++){
         self->plural[i]=self->plural[i+1];
      }

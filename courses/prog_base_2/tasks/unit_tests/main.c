@@ -42,7 +42,7 @@ static void new_plural_add_delete_one_element_check_pos(void **state)
 {
     int tPos;
       puts("");
-    puts("Enter added number, and enter position of deleted element(in this case - 0)");
+   // puts("Enter added number, and enter position of deleted element(in this case - 0)");
     plural_t * plural = plural_new(10,&tPos);
     plural_addElement(plural,&tPos);
     plural_deleteElement(plural,&tPos);
@@ -56,14 +56,14 @@ static void new_plural_add_range_of_elements_check_pos(void **state)
     int tPos;
     int a,b,c;
     puts("");
-    puts("Enter start and end of range(Two times, one for the test other for function).");
-    puts("For the correct test requires that the difference between the");
-    puts("start and end digits did not exceed 10.");
-    printf("Enter start of range:");
-    scanf("%i",&a);
-    printf("Enter end of range:");
-    scanf("%i",&b);
-    c=b-a;
+    //puts("Enter start and end of range(Two times, one for the test other for function).");
+    //puts("For the correct test requires that the difference between the");
+    //puts("start and end digits did not exceed 10.");
+   // printf("Enter start of range:");
+   // scanf("%i",&a);
+   // printf("Enter end of range:");
+    //scanf("%i",&b);
+    c=3;
     plural_t * plural = plural_new(10,&tPos);
     plural_fill_range(plural,&tPos, a, b);
     assert_int_equal(tPos-1,c);
