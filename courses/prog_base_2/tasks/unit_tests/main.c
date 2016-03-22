@@ -8,7 +8,7 @@
 #include "plural.h"
 
 // unit-test function
-static void new_random_plural_check_cursor_pos_by_cursor_comparison(void **state)
+static void new_random_plural_check_cursor_pos_by_comparison_cursor_position_in_plural_array(void **state)
 {
     int tPos;
     plural_t * plural = plural_new(10,&tPos);
@@ -18,7 +18,7 @@ static void new_random_plural_check_cursor_pos_by_cursor_comparison(void **state
     puts("");
 }
 
-static void new_random_plural_check_print_by_cursor_comparison(void **state)
+static void new_random_plural_check_print_by_comparison_cursor_position_in_plural_array(void **state)
 {
     int tPos;
     plural_t * plural = plural_new(10,&tPos);
@@ -28,7 +28,7 @@ static void new_random_plural_check_print_by_cursor_comparison(void **state)
     puts("");
 }
 
-static void new_plural_add_one_element_check_correct_add_by_cursor_comparison(void **state)
+static void new_plural_add_one_element_check_correct_add_by_comparison_cursor_position_in_plural_array(void **state)
 {
     int tPos;
     plural_t * plural = plural_new(10,&tPos);
@@ -38,7 +38,7 @@ static void new_plural_add_one_element_check_correct_add_by_cursor_comparison(vo
     puts("");
 }
 
-static void new_plural_add_delete_one_element_check_correct_deletedby_cursor_comparison(void **state)
+static void new_plural_add_delete_one_element_check_correct_deleted_by_comparison_cursor_position_in_plural_array(void **state)
 {
     int tPos;
       puts("");
@@ -51,7 +51,7 @@ static void new_plural_add_delete_one_element_check_correct_deletedby_cursor_com
     puts("");
 }
 
-static void new_plural_add_range_of_elements_correct_add_by_cursor_comparison(void **state)
+static void new_plural_add_range_of_elements_correct_add_by_comparison_cursor_position_in_plural_array(void **state)
 {
     int tPos;
     int a,b,c;
@@ -112,14 +112,15 @@ int main()
     puts("");
     const struct CMUnitTest tests[] =
     {
-        cmocka_unit_test(new_random_plural_check_pos),
-        cmocka_unit_test(new_random_plural_print),
-        cmocka_unit_test(new_plural_add_one_element_check_pos),
-        cmocka_unit_test(new_plural_add_delete_one_element_check_pos),
-        cmocka_unit_test(new_plural_add_range_of_elements_check_pos),
-        cmocka_unit_test(new_plural_intersection),
-        cmocka_unit_test(new_plural_association),
-        cmocka_unit_test(new_plural_symmetric_difference),
+        cmocka_unit_test(new_random_plural_check_cursor_pos_by_comparison_cursor_position_in_plural_array),
+        cmocka_unit_test(new_random_plural_check_print_by_comparison_cursor_position_in_plural_array),
+        cmocka_unit_test(new_plural_add_one_element_check_correct_add_by_comparison_cursor_position_in_plural_array),
+        cmocka_unit_test(new_plural_add_delete_one_element_check_correct_deleted_by_comparison_cursor_position_in_plural_array),
+        cmocka_unit_test(new_plural_add_range_of_elements_correct_add_by_comparison_cursor_position_in_plural_array),
+        cmocka_unit_test(check_new_plural_intersection_by_return_value),
+        cmocka_unit_test(check_new_plural_association_by_return_value),
+        cmocka_unit_test(check_new_plural_symmetric_difference_by_return_value),
+
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
     /*

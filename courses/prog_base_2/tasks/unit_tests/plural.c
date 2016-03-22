@@ -99,9 +99,11 @@ void plural_free(plural_t * self) {
 int plural_intersection(plural_t * self, int plur[10]){
 int i,j,rp=0;
 int check=0;
+int checkTrue=0;
 int resultPlural[self->size];
 for(i=0;i<self->size;i++){
    for(j=0;j<10;j++){
+        checkTrue++;
         if(self->plural[i]==plur[j]){
             check++;
         }
@@ -121,11 +123,13 @@ puts("Result of intersection:");
             printf("%i ",resultPlural[i]);
         }
 */
-return 1;
+if(checkTrue==self->size*10){
+return 1;}else{return 0;}
 }
 
 
 int plural_association(plural_t * self, int plur[10]){
+    int checkTrue=0;
     int i,j,rp=0;
     int check=0;
     int resultPlural[self->size+10];
@@ -136,6 +140,7 @@ int plural_association(plural_t * self, int plur[10]){
 
         for(j=0;j<10;j++){
             for(i=0;i<self->size;i++){
+                    checkTrue++;
               if(self->plural[i]==plur[j]){
             check++;
                }
@@ -157,17 +162,20 @@ int plural_association(plural_t * self, int plur[10]){
             printf("%i ",resultPlural[i]);
         }
         */
-        return 1;
+      if(checkTrue==self->size*10){
+return 1;}else{return 0;}
 }
 
 
 int plural_symmetric_difference(plural_t * self, int plur[10]){
+    int checkTrue=0;
 int i,j,rp=0;
     int check=0;
     int resultPlural[self->size+10];
 
     for(j=0;j<10;j++){
             for(i=0;i<self->size;i++){
+                    checkTrue++;
               if(self->plural[i]==plur[j]){
             check++;
                }
@@ -203,7 +211,8 @@ int i,j,rp=0;
             printf("%i ",resultPlural[i]);
         }
         */
-        return 1;
+        if(checkTrue==self->size*10){
+return 1;}else{return 0;}
 
 
 }
