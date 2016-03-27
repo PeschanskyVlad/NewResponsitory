@@ -14,35 +14,28 @@ struct string_s {
 };
 
 
-void * writer(void  *  args) {
+char * getCurrentString(int i,string_t  *  st){
+char *mstr1;
 
-string_t * st = (string_t *)args;
-    while(1){
-            int i;
-            for(i=0;i<5;i++){
-                st->myString=st->str_array[i];
-                Sleep(30);
-            }
-    }
-
-    return NULL;
-
-
+if(i==6){
+ mstr1=st->myString;
+ return mstr1;
 }
 
-void *  reader(void * args) {
-
-string_t * st = (string_t *)args;
-    while(1){
-            if(strlen(st->myString)<=5){
-                printf("String: %s\n",st->myString);
-                }
-                Sleep(30);
-
-    }
-     return NULL;
-
+mstr1=st->str_array[i];
+Sleep(30);
+return mstr1;
 }
+
+void giveString(char  *  st1,string_t  *  st){
+st->myString=st1;
+}
+
+void temp(string_t  *  st){
+puts(getCurrentString(1,st));
+}
+
+
 
 
 
@@ -50,11 +43,13 @@ int main()
 {
     string_t st;
     st.mu = mutex_new();
-    scanf("%s",st.str_array[0]);
-    scanf("%s",st.str_array[1]);
-    scanf("%s",st.str_array[2]);
-    scanf("%s",st.str_array[3]);
-    scanf("%s",st.str_array[4]);
+    strcpy(st.str_array[0],"Test");
+    strcpy(st.str_array[1],"Slogna");
+    strcpy(st.str_array[2],"hello");
+    strcpy(st.str_array[3],"why");
+    strcpy(st.str_array[4],"123456");
+
+
 
 
     thread_t * st1 = thread_create_args(writer, &st);
