@@ -15,6 +15,7 @@ void *  reader(string_t  *  st) {
 
                  puts(mstr);
                 }
+              //  Sleep(100);
 
     }
      return NULL;

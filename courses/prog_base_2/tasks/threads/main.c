@@ -31,9 +31,6 @@ void giveString(char  *  st1,string_t  *  st){
 st->myString=st1;
 }
 
-void temp(string_t  *  st){
-puts(getCurrentString(1,st));
-}
 
 
 
@@ -47,7 +44,8 @@ int main()
     strcpy(st.str_array[1],"Slogna");
     strcpy(st.str_array[2],"hello");
     strcpy(st.str_array[3],"why");
-    strcpy(st.str_array[4],"123456");
+    strcpy(st.str_array[4],"1256");
+    strcpy(st.myString,st.str_array[4]);
 
 
 

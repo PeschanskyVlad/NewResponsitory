@@ -11,15 +11,11 @@ void * writer(string_t  *  st) {
 
 
 
-     int i;
+    int i;
     while(1){
 
             for(i=0;i<5;i++){
-
-                    giveString(getCurrentString(i,st));
-
-
-
+                giveString(getCurrentString(i,st),st);
             }
     }
 
