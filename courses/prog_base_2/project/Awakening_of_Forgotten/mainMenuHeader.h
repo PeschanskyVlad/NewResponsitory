@@ -1,0 +1,8 @@
+#ifndef MAINMENUHEADER_H_INCLUDED
+#define MAINMENUHEADER_H_INCLUDED
+
+
+void mainMenu();
+
+
+#endif // MAINMENUHEADER_H_INCLUDED

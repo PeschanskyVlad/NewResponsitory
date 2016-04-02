@@ -9,7 +9,7 @@
 			<Target title="Debug">
 				<Option output="bin/Debug/Awakening_of_Forgotten" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
-				<Option type="1" />
+				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
@@ -34,6 +34,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="mainMenu.cpp" />
+		<Unit filename="mainMenuHeader.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
