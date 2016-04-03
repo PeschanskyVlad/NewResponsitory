@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1459537527 source:e:\kursach\awakening_of_forgotten\main.cpp
+1459697299 source:e:\kursach\awakening_of_forgotten\main.cpp
 	"mainMenuHeader.h"
 
 1429776854 c:\sfml\sfml-2.3.2\include\\sfml\graphics.hpp
@@ -380,9 +380,10 @@
 	<string>
 	<vector>
 
-1459586441 e:\kursach\awakening_of_forgotten\mainmenuheader.h
+1459697072 e:\kursach\awakening_of_forgotten\mainmenuheader.h
+	<SFML/Graphics.hpp>
 
-1459587433 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
+1459697587 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
 	"mainMenuHeader.h"
 	<SFML/Graphics.hpp>
 	<SFML/Graphics/Color.hpp>

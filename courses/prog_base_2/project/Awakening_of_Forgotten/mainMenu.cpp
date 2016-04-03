@@ -2,13 +2,17 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Color.hpp>
 
+/*
+realization of backlight buttons
+*/
+
 int menuSelection(sf::RenderWindow & win,sf::Texture & newgame,sf::Texture & loadgame,sf::Texture & exit){
 
     if (sf::IntRect(50, 50, 270, 65).contains(sf::Mouse::getPosition(win))) {
 
-        newgame.loadFromFile("newGameConfirmed.png");
-        loadgame.loadFromFile("loadGame.png");
-        exit.loadFromFile("exit.png");
+        newgame.loadFromFile("menuPictures/newGameConfirmed.png");
+        loadgame.loadFromFile("menuPictures/loadGame.png");
+        exit.loadFromFile("menuPictures/exit.png");
         return 1;
     }
     else
@@ -16,9 +20,9 @@ int menuSelection(sf::RenderWindow & win,sf::Texture & newgame,sf::Texture & loa
             if (sf::IntRect(50, 150, 270, 65).contains(sf::Mouse::getPosition(win)))
             {
 
-                newgame.loadFromFile("newGame.png");
-                loadgame.loadFromFile("loadGameConfirmed.png");
-                exit.loadFromFile("exit.png");
+                newgame.loadFromFile("menuPictures/newGame.png");
+                loadgame.loadFromFile("menuPictures/loadGameConfirmed.png");
+                exit.loadFromFile("menuPictures/exit.png");
                 return 2;
             }
             else
@@ -26,16 +30,16 @@ int menuSelection(sf::RenderWindow & win,sf::Texture & newgame,sf::Texture & loa
                     if (sf::IntRect(50, 250, 270, 65).contains(sf::Mouse::getPosition(win)))
                     {
 
-                        newgame.loadFromFile("newGame.png");
-                        loadgame.loadFromFile("loadGame.png");
-                        exit.loadFromFile("exitConfirmed.png");
+                        newgame.loadFromFile("menuPictures/newGame.png");
+                        loadgame.loadFromFile("menuPictures/loadGame.png");
+                        exit.loadFromFile("menuPictures/exitConfirmed.png");
                         return 3;
                     }
                     else
                     {
-                        newgame.loadFromFile("newGame.png");
-                        loadgame.loadFromFile("loadGame.png");
-                        exit.loadFromFile("exit.png");
+                        newgame.loadFromFile("menuPictures/newGame.png");
+                        loadgame.loadFromFile("menuPictures/loadGame.png");
+                        exit.loadFromFile("menuPictures/exit.png");
                         return 0;
 
                     }
@@ -43,11 +47,14 @@ int menuSelection(sf::RenderWindow & win,sf::Texture & newgame,sf::Texture & loa
     }
 }
 
+/*
+draw menu
+*/
 
-void mainMenu(){
+
+void mainMenu(sf::RenderWindow & win){
 
 
-    sf::RenderWindow win(sf::VideoMode(1000, 800), "Awakening_of_forgotten", sf::Style::Fullscreen );
     sf::Texture background,newgame,loadgame,exit;
     sf::Sprite menuBackground, menuNewGame,menuLoadGame,menuExit;
     int menuNum=0;
@@ -55,7 +62,7 @@ void mainMenu(){
   while (win.isOpen())
     {
 
-    background.loadFromFile("background.jpg");
+    background.loadFromFile("menuPictures/background.jpg");
 
 
     menuBackground.setTexture(background);
