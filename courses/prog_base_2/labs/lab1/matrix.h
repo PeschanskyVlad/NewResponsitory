@@ -6,6 +6,7 @@ typedef enum M_STATUS {M_OK, M_NULL, M_ERROR_OPERATION} M_STATUS;
 
 matrix_t * new_random_matrix();
 matrix_t * new_test_matrix();
+matrix_t * matrix_new_test(int n, int m, const int arr[n][m]);
 
 
 
@@ -26,7 +27,7 @@ int matrix_vector_multiplication(const matrix_t * mt,const vector_t * vc);
 
 int matrix_free(matrix_t * self);
 
-int transpose_matrix(const matrix_t * mt);
+int matrix_transpose(const matrix_t * mt);
 
 void matrix_multiplication(const matrix_t * mt,const matrix_t * mt1);
 

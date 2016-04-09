@@ -1,5 +1,6 @@
 #include "Lab1_Header.h"
 #include "matrix.h"
+#include "vector.h"
 #include <time.h>
 
 struct matrix_s
@@ -78,6 +79,48 @@ matrix_t * new_test_matrix()
     status=M_OK;
     return mt;
 }
+
+
+
+matrix_t * matrix_new_test(int n, int m, const int arr[n][m])
+{
+    int i;
+    matrix_t * mt = malloc(sizeof(struct matrix_s));
+    if(mt == NULL)
+    {
+        status = M_NULL;
+        return NULL;
+    }
+
+    mt->n = n;
+    mt->m = m;
+
+     mt->element = (int **)malloc(n * sizeof(int *));
+    for(i=0; i<n; i++)
+    {
+        mt->element[i] = malloc(sizeof(int)*m);
+        memset(mt->element[i], 0, m * sizeof(int));
+    }
+
+    if(mt->element == NULL)
+    {
+        status = M_NULL;
+        return NULL;
+    }
+
+    for(i=0; i<mt->n; i++)
+    {
+        for(int j=0; j<mt->m; j++)
+        {
+            mt->element[i][j] = arr[i][j];
+        }
+    }
+
+    status = M_OK;
+    return mt;
+}
+
+
 
 
 
@@ -166,7 +209,7 @@ int matrix_test_multiplication(const matrix_t * mt)
     }
     int i,j,checkTrue=0;
     srand ( time(NULL)+6);
-    int n=7,m=4;
+    int n=3,m=3;
     int tempMatrix[n][m];
     puts("");
     puts("Random temp matrix:");
@@ -228,8 +271,8 @@ int matrix_vector_multiplication(const matrix_t * mt,const vector_t * vc)
 
     int i,j,checkTrue=0;
     puts("");
-    //printf("%i %i",mt->,return_vector_size(vc));
-    if(mt->m!=return_vector_size(vc))
+
+    if(mt->m!=vector_return_size(vc))
     {
         puts("");
         status=M_ERROR_OPERATION;
@@ -240,7 +283,7 @@ int matrix_vector_multiplication(const matrix_t * mt,const vector_t * vc)
     {
         for(j=0; j<mt->m; j++)
         {
-            mt->element[i][j]*=return_vector_value_on_k_position(vc,j);
+            mt->element[i][j]*=vector_return_value_on_k_position(vc,j);
             //printf("%i ",return_vector_value_on_k_position(vc,j));
             checkTrue++;
         }
@@ -259,7 +302,7 @@ int matrix_vector_multiplication(const matrix_t * mt,const vector_t * vc)
 }
 
 
-int transpose_matrix(const matrix_t * mt)
+int matrix_transpose(const matrix_t * mt)
 
 {
 

@@ -9,7 +9,7 @@ int size;
 
 static enum V_STATUS status = V_OK;
 
-vector_t * new_random_vector() {
+vector_t * vector_random() {
     srand ( time(NULL)+1);
     int i,size;
     size=rand()%9+1;
@@ -49,6 +49,27 @@ vector_t * new_test_vector() {
     status=V_OK;
     return vc;
 }
+
+
+vector_t * vector_new_test(int size, int arr[size]) {
+    srand ( time(NULL)+1);
+    int i;
+
+
+    vector_t * vc = malloc(sizeof(struct vector_s));
+    if(vc==NULL){
+        status=V_NULL;
+        return NULL;
+    }
+    vc->element = malloc(sizeof(int) * size);
+    vc->size = size;
+     for (i = 0; i < vc->size; i++) {
+        vc->element[i] =  arr[i];
+    }
+    status=V_OK;
+    return vc;
+}
+
 
 int vector_print(const vector_t * self) {
 
@@ -136,7 +157,7 @@ int vector_multiplication_on_random_number(vector_t * self) {
     }
 }
 
-int return_vector_value_on_k_position(const vector_t * self,int k){
+int vector_return_value_on_k_position(const vector_t * self,int k){
      if(self==NULL){
             status=V_NULL;
         return 0;
@@ -144,7 +165,7 @@ int return_vector_value_on_k_position(const vector_t * self,int k){
     return self->element[k];
 }
 
-int return_vector_size(const vector_t * self){
+int vector_return_size(const vector_t * self){
      if(self==NULL){
             status=V_NULL;
         return 0;

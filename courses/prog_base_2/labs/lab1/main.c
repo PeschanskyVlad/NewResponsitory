@@ -24,9 +24,9 @@ int main(){
     matrix_print(mt);
     matrix_multiplication(mt,mt1);
 
-    vector_t * vc1 =new_random_vector();
+    vector_t * vc1 =vector_random();
      vector_print(vc1);
-    vector_t * vc2 =new_random_vector();
+    vector_t * vc2 =vector_random();
 
     vectors_multiplication(vc1,vc2);
     vector_print(vc1);
