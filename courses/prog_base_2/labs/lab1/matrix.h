@@ -1,5 +1,6 @@
 #ifndef MATRIX_H_INCLUDED
 #define MATRIX_H_INCLUDED
+typedef struct matrix_s matrix_t ;
 
 typedef enum M_STATUS {M_OK, M_NULL, M_ERROR_OPERATION} M_STATUS;
 
@@ -28,6 +29,8 @@ int matrix_free(matrix_t * self);
 int transpose_matrix(const matrix_t * mt);
 
 void matrix_multiplication(const matrix_t * mt,const matrix_t * mt1);
+
+M_STATUS return_M_status();
 
 
 

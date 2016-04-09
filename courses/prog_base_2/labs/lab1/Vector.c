@@ -118,3 +118,8 @@ int return_vector_value_on_k_position(const vector_t * self,int k){
 int return_vector_size(const vector_t * self){
     return self->size;
 }
+
+V_STATUS return_V_status()
+{
+    return status;
+}

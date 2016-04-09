@@ -10,6 +10,7 @@
 
 
 int main(){
+    static enum M_STATUS status;
 
 
     test();
@@ -29,6 +30,10 @@ int main(){
 
     vectors_multiplication(vc1,vc2);
     vector_print(vc1);
+
+    status=return_M_status();
+
+
 
 
 
