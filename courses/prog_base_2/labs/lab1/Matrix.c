@@ -95,6 +95,12 @@ int matrix_free(matrix_t * self)
 
 int matrix_print(const matrix_t * self)
 {
+
+     if(self==NULL){
+        status=M_NULL;
+        return 0;
+    }
+
     int i,j,checkTrue=0;
     puts("");
     puts("Matrix:");
@@ -121,7 +127,13 @@ int matrix_print(const matrix_t * self)
 }
 
 int matrix_multiplication_on_random_number(const matrix_t * self)
+
 {
+
+    if(self==NULL){
+        status=M_NULL;
+        return 0;
+    }
     srand ( time(NULL) );
     int i,j,checkTrue=0;
     int randElement=rand()%5;
@@ -147,6 +159,11 @@ int matrix_multiplication_on_random_number(const matrix_t * self)
 
 int matrix_test_multiplication(const matrix_t * mt)
 {
+
+    if(mt==NULL){
+        status=M_NULL;
+        return 0;
+    }
     int i,j,checkTrue=0;
     srand ( time(NULL)+6);
     int n=7,m=4;
@@ -198,6 +215,17 @@ int matrix_test_multiplication(const matrix_t * mt)
 
 int matrix_vector_multiplication(const matrix_t * mt,const vector_t * vc)
 {
+
+     if(mt==NULL){
+        status=M_NULL;
+        return 0;
+    }
+
+     if(vc==NULL){
+        status=M_NULL;
+        return 0;
+    }
+
     int i,j,checkTrue=0;
     puts("");
     //printf("%i %i",mt->,return_vector_size(vc));
@@ -232,7 +260,13 @@ int matrix_vector_multiplication(const matrix_t * mt,const vector_t * vc)
 
 
 int transpose_matrix(const matrix_t * mt)
+
 {
+
+     if(mt==NULL){
+        status=M_NULL;
+        return 0;
+    }
     int i,j,checkTrue=0;
 
     puts("Transpose matrix:");
@@ -275,6 +309,16 @@ int transpose_matrix(const matrix_t * mt)
 
 void matrix_multiplication(const matrix_t * mt,const matrix_t * mt1)
 {
+
+     if(mt==NULL){
+        status=M_NULL;
+        return 0;
+    }
+
+     if(mt1==NULL){
+        status=M_NULL;
+        return 0;
+    }
     int i,j;
 
     if(mt->m!=mt1->n)

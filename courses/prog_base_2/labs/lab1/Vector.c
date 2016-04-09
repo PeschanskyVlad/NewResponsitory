@@ -51,6 +51,11 @@ vector_t * new_test_vector() {
 }
 
 int vector_print(const vector_t * self) {
+
+    if(self==NULL){
+            status=V_NULL;
+        return 0;
+    }
     int i;
     int checkPrint=0;
     puts("");
@@ -72,12 +77,27 @@ int vector_print(const vector_t * self) {
 }
 
 int vector_free(vector_t * self) {
+
+     if(self==NULL){
+            status=V_NULL;
+        return 0;
+    }
     free(self->element);
     free(self);
     return 1;
 }
 
 void vectors_multiplication(const vector_t * v1,const vector_t * v2){
+
+     if(v1==NULL){
+            status=V_NULL;
+        return 0;
+    }
+
+     if(v2==NULL){
+            status=V_NULL;
+        return 0;
+    }
 int i;
 
     if(v1->size!=v2->size){
@@ -94,6 +114,11 @@ int i;
 }
 
 int vector_multiplication_on_random_number(vector_t * self) {
+
+     if(self==NULL){
+            status=V_NULL;
+        return 0;
+    }
     srand ( time(NULL)+4);
     int i,checkTrue=0;
     int randNum=rand()%8;
@@ -112,10 +137,18 @@ int vector_multiplication_on_random_number(vector_t * self) {
 }
 
 int return_vector_value_on_k_position(const vector_t * self,int k){
+     if(self==NULL){
+            status=V_NULL;
+        return 0;
+    }
     return self->element[k];
 }
 
 int return_vector_size(const vector_t * self){
+     if(self==NULL){
+            status=V_NULL;
+        return 0;
+    }
     return self->size;
 }
 
