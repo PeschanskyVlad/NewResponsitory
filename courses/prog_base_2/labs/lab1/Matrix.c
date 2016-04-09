@@ -169,6 +169,10 @@ int matrix_print(const matrix_t * self)
     }
 }
 
+int matrix_return_element(const matrix_t * self,int n, int m){
+ return self->element[n][m];
+}
+
 int matrix_multiplication_on_random_number(const matrix_t * self)
 
 {
@@ -179,7 +183,7 @@ int matrix_multiplication_on_random_number(const matrix_t * self)
     }
     srand ( time(NULL) );
     int i,j,checkTrue=0;
-    int randElement=rand()%5;
+    int randElement=rand()%5+1;
     for(i=0; i<self->n; i++)
     {
         for(j=0; j<self->m; j++)
@@ -209,9 +213,9 @@ int matrix_test_multiplication(const matrix_t * mt)
     }
     int i,j,checkTrue=0;
     srand ( time(NULL)+6);
-    int n=3,m=3;
-    int tempMatrix[n][m];
-    puts("");
+    int n=2,m=2;
+    int tempMatrix[2][2]={{2,2},{2,2}};
+    puts("");/*
     puts("Random temp matrix:");
     for(i=0; i<n; i++)
     {
@@ -222,7 +226,7 @@ int matrix_test_multiplication(const matrix_t * mt)
         }
         puts("");
     }
-
+*/
     if(mt->m!=n)
     {
         puts("");
@@ -238,6 +242,7 @@ int matrix_test_multiplication(const matrix_t * mt)
     {
         for(j=0; j<m; j++)
         {
+            mt->element[i][j]*=tempMatrix[j][i];
             printf("%i ",mt->element[i][j]*tempMatrix[j][i]);
             checkTrue++;
         }
@@ -335,6 +340,18 @@ int matrix_transpose(const matrix_t * mt)
         }
         puts("");
     }
+
+    for(i=0; i<mt->n; i++)
+    {
+        for(j=0; j<mt->m; j++)
+        {
+            mt->element[i][j]=tempMatrix[i][j];
+        }
+        }
+
+
+
+
 
     puts(" ");
 

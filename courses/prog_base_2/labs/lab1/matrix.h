@@ -12,7 +12,7 @@ matrix_t * matrix_new_test(int n, int m, const int arr[n][m]);
 
 
 
-
+int matrix_return_element(const matrix_t * self,int n, int m);
 
 
 int matrix_print(const matrix_t * self);
