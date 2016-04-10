@@ -94,14 +94,8 @@ static void get_freelanser(freelanser * freelanser, xmlNodePtr fl)
 
                 else if(xmlStrEqual(des_child_stats->name, "birthdate"))
                 {
-                    struct tm birthdate;
-                    memset(&birthdate, 0, sizeof(struct tm));
-                    char buffer[100];
-                    copy_data(buffer, des_child_stats);
-                    sscanf(buffer, "%i-%i-%i", &(birthdate.tm_year), &(birthdate.tm_mon), &(birthdate.tm_mday));
-                    birthdate.tm_year -= 1900;
-                    birthdate.tm_mon -= 1;
-                    freelanser->pD.birthdate = mktime(&birthdate);
+                    copy_data(freelanser->pD.birthdate, des_child_stats);
+
                 }
             }while((des_child_stats = des_child_stats->next) != NULL);
         }

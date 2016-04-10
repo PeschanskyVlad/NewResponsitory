@@ -5,7 +5,7 @@
 #include <time.h>
 struct personalData{
    int age;
-   time_t birthdate;
+   char birthdate[100];
    float workExperience;
 };
 

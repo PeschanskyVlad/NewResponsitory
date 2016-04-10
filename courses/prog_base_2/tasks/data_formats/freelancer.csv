@@ -1,4 +1,4 @@
-name,surname,company,position,age,workExperience,birthdate
+name,surname,company,position,age,birthdate,workExperience
 Bob,Curly,Microsoft,Web Designer,20,543.54,1996-02-21
 Jonny,Dinner,Google,Programmer,22,498.61,1994-03-19
 Witch,King,Angmar,Witch-king of Angmar,4209,0,1970-05-01

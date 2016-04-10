@@ -17,7 +17,7 @@ int main() {
         puts("statistics : ");
         printf("age : %i\n",freelancers[i].pD.age);
         printf("workExperience : %.2f\n",freelancers[i].pD.workExperience);
-        printf("birthdate : %s\n",ctime(&(freelancers[i].pD.birthdate)));
+        printf("birthdate : %s\n",freelancers[i].pD.birthdate);
         puts("\n");
     }
 	return 0;
