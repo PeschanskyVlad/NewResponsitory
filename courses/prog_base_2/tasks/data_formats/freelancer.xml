@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<freelancers>
+    <freelancer>
+        <name>Bob</name>
+        <surname>Curly</surname>
+        <position company="Microsoft">Web Designer</position>
+        <personalData>
+            <age>20</age>
+            <workExperience>543.54</workExperience>
+            <birthdate>1996-02-21</birthdate>
+        </personalData>
+    </freelancer>
+    <freelancer>
+        <name>Jonny</name>
+        <surname>Dinner</surname>
+        <position company="Google">Programmer</position>
+        <personalData>
+            <age>22</age>
+            <workExperience>498.61</workExperience>
+            <birthdate>1994-03-19</birthdate>
+        </personalData>
+    </freelancer>
+    <freelancer>
+        <name>Witch </name>
+        <surname>King </surname>
+        <position company="Angmar">Witch-king of Angmar</position>
+        <personalData>
+            <age>4209</age>
+            <workExperience>0</workExperience>
+            <birthdate>1970-05-01</birthdate>
+        </personalData>
+    </freelancer>
+</freelancers>

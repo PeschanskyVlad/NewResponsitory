@@ -1,0 +1,41 @@
+[
+   {
+      "name":"Bob",
+      "surname":"Curly",
+      "position":{
+         "company":"Microsoft",
+         "name":"Web Designer"
+      },
+      "personalData":{
+         "age":20,
+         "workExperience":543.54,
+         "birthdate":"1996-02-21"
+      }
+   },
+   {
+      "name":"Jonny",
+      "surname":"Dinner",
+      "position":{
+         "company":"Google",
+         "name":"Programmer"
+      },
+      "personalData":{
+         "age":22,
+         "workExperience":498.6,
+         "birthdate":"1994-03-19"
+      }
+   },
+   {
+      "name":"Witch",
+      "surname":"King",
+      "position":{
+         "company":"Angmar",
+         "name":"Witch-king of Angmar"
+      },
+      "personalData":{
+         "age":4209,
+         "workExperience":0,
+         "birthdate":"1970-05-01"
+      }
+   }
+]
