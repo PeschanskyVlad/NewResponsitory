@@ -380,11 +380,21 @@
 	<string>
 	<vector>
 
-1459697072 e:\kursach\awakening_of_forgotten\mainmenuheader.h
+1460392052 e:\kursach\awakening_of_forgotten\mainmenuheader.h
 	<SFML/Graphics.hpp>
 
-1459697587 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
+1460392576 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
 	"mainMenuHeader.h"
 	<SFML/Graphics.hpp>
 	<SFML/Graphics/Color.hpp>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<string.h>
+
+1460394196 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
+	"mainMenuHeader.h"
+	<SFML/Graphics.hpp>
+	<SFML/Graphics/Color.hpp>
+	<Windows.h>
 

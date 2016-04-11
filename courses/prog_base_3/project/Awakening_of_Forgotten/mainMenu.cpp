@@ -1,6 +1,12 @@
 #include "mainMenuHeader.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Color.hpp>
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <string.h>
+
+#define max_map_name_length 100
 
 /*
 realization of backlight buttons
@@ -54,6 +60,10 @@ draw menu
 
 void mainMenu(sf::RenderWindow & win){
 
+    char * map=(char*)malloc(100);
+    memset(map,0,max_map_name_length);
+    strcpy(map,"maps/Map1.jpg");
+
 
     sf::Texture background,newgame,loadgame,exit;
     sf::Sprite menuBackground, menuNewGame,menuLoadGame,menuExit;
@@ -62,8 +72,8 @@ void mainMenu(sf::RenderWindow & win){
   while (win.isOpen())
     {
 
-    background.loadFromFile("menuPictures/background.jpg");
-
+background.loadFromFile("menuPictures/background.jpg");
+//background.loadFromFile("maps/Map1.jpg");
 
     menuBackground.setTexture(background);
     menuBackground.setPosition(0,0);
@@ -84,7 +94,11 @@ void mainMenu(sf::RenderWindow & win){
 		{
 
 
-			if (menuNum == 1)  {}
+			if (menuNum == 1)  {
+                    gameClient(win,map);
+                   // win.clear();
+                    }
+
 			if (menuNum == 2)  {}
 			if (menuNum == 3)  { win.close();}
 

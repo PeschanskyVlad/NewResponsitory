@@ -4,6 +4,7 @@
 
 
 void mainMenu(sf::RenderWindow & win);
+void gameClient(sf::RenderWindow & win,char * map);
 
 
 #endif // MAINMENUHEADER_H_INCLUDED

@@ -33,6 +33,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="gameClient.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenuHeader.h" />
