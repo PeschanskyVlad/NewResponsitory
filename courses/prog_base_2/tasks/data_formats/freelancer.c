@@ -5,33 +5,6 @@
 #include <libxml/xmlmemory.h>
 
 
-static void get_freelanser(freelanser * freelanser, xmlNodePtr fl);
-
-void find_freelansers(freelanser * freelansers, size_t required_quantity)
-{
-    LIBXML_TEST_VERSION
-
-    xmlDocPtr file;
-    xmlNodePtr cur;
-    file = xmlParseFile("freelancer.xml");
-
-
-    cur = xmlDocGetRootElement(file);
-
-
-    xmlNodePtr fl = cur->children->next;
-    for(int i = 0; i < required_quantity && fl != NULL; fl = fl->next, i++)
-    {
-        if(fl->type != XML_ELEMENT_NODE)
-        {
-            i--;
-            continue;
-        }
-        get_freelanser(&freelansers[i], fl);
-    }
-    xmlFreeDoc(file);
-}
-
 static void copy_data(char * buffer, xmlNodePtr data)
 {
     char * content = xmlNodeGetContent(data);
@@ -101,3 +74,30 @@ static void get_freelanser(freelanser * freelanser, xmlNodePtr fl)
         }
     }while((fl_child = fl_child->next)!=NULL);
 }
+
+
+void find_freelansers(freelanser * freelansers, size_t required_quantity)
+{
+    LIBXML_TEST_VERSION
+
+    xmlDocPtr file;
+    xmlNodePtr cur;
+    file = xmlParseFile("freelancer.xml");
+
+
+    cur = xmlDocGetRootElement(file);
+
+
+    xmlNodePtr fl = cur->children->next;
+    for(int i = 0; i < required_quantity && fl != NULL; fl = fl->next, i++)
+    {
+        if(fl->type != XML_ELEMENT_NODE)
+        {
+            i--;
+            continue;
+        }
+        get_freelanser(&freelansers[i], fl);
+    }
+    xmlFreeDoc(file);
+}
+
