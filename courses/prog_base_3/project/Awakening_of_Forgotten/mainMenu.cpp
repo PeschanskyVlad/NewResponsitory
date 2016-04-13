@@ -5,47 +5,62 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <string.h>
+#include <SFML/Window.hpp>
 
 #define max_map_name_length 100
+
+struct buttonTextures{
+    sf::Texture newgame1;
+    sf::Texture newgame2;
+    sf::Texture loadgame1;
+    sf::Texture loadgame2;
+    sf::Texture exit1;
+    sf::Texture exit2;
+
+};
 
 /*
 realization of backlight buttons
 */
 
-int menuSelection(sf::RenderWindow & win,sf::Texture & newgame,sf::Texture & loadgame,sf::Texture & exit){
 
-    if (sf::IntRect(50, 50, 270, 65).contains(sf::Mouse::getPosition(win))) {
+    int menuSelection(sf::RenderWindow & window,struct buttonTextures & bt, sf::Sprite & menuNewGame, sf::Sprite & menuLoadGame, sf::Sprite & menuExit ){
 
-        newgame.loadFromFile("menuPictures/newGameConfirmed.png");
-        loadgame.loadFromFile("menuPictures/loadGame.png");
-        exit.loadFromFile("menuPictures/exit.png");
+    if (sf::IntRect(50, 50, 270, 65).contains(sf::Mouse::getPosition(window))) {
+        menuNewGame.setTexture(bt.newgame2);
+        menuLoadGame.setTexture(bt.loadgame1);
+        menuExit.setTexture(bt.exit1);
+
         return 1;
     }
     else
     {
-            if (sf::IntRect(50, 150, 270, 65).contains(sf::Mouse::getPosition(win)))
+            if (sf::IntRect(50, 150, 270, 65).contains(sf::Mouse::getPosition(window)))
             {
+                menuNewGame.setTexture(bt.newgame1);
+                menuLoadGame.setTexture(bt.loadgame2);
+                menuExit.setTexture(bt.exit1);
 
-                newgame.loadFromFile("menuPictures/newGame.png");
-                loadgame.loadFromFile("menuPictures/loadGameConfirmed.png");
-                exit.loadFromFile("menuPictures/exit.png");
                 return 2;
             }
             else
             {
-                    if (sf::IntRect(50, 250, 270, 65).contains(sf::Mouse::getPosition(win)))
+                    if (sf::IntRect(50, 250, 270, 65).contains(sf::Mouse::getPosition(window)))
                     {
+                        menuNewGame.setTexture(bt.newgame1);
+                        menuLoadGame.setTexture(bt.loadgame1);
+                        menuExit.setTexture(bt.exit2);
 
-                        newgame.loadFromFile("menuPictures/newGame.png");
-                        loadgame.loadFromFile("menuPictures/loadGame.png");
-                        exit.loadFromFile("menuPictures/exitConfirmed.png");
                         return 3;
                     }
                     else
                     {
-                        newgame.loadFromFile("menuPictures/newGame.png");
-                        loadgame.loadFromFile("menuPictures/loadGame.png");
-                        exit.loadFromFile("menuPictures/exit.png");
+
+
+                        menuNewGame.setTexture(bt.newgame1);
+                        menuLoadGame.setTexture(bt.loadgame1);
+                        menuExit.setTexture(bt.exit1);
+
                         return 0;
 
                     }
@@ -58,7 +73,15 @@ draw menu
 */
 
 
-void mainMenu(sf::RenderWindow & win){
+void mainMenu(sf::RenderWindow & window){
+    struct buttonTextures bt;
+    bt.newgame1.loadFromFile("menuPictures/newGame.png");
+    bt.newgame2.loadFromFile("menuPictures/newGameConfirmed.png");
+    bt.loadgame1.loadFromFile("menuPictures/loadGame.png");
+    bt.loadgame2.loadFromFile("menuPictures/loadGameConfirmed.png");
+    bt.exit1.loadFromFile("menuPictures/exit.png");
+    bt.exit2.loadFromFile("menuPictures/exitConfirmed.png");
+
 
     char * map=(char*)malloc(100);
     memset(map,0,max_map_name_length);
@@ -67,26 +90,26 @@ void mainMenu(sf::RenderWindow & win){
 
     sf::Texture background,newgame,loadgame,exit;
     sf::Sprite menuBackground, menuNewGame,menuLoadGame,menuExit;
-    int menuNum=0;
-
-  while (win.isOpen())
-    {
-
-background.loadFromFile("menuPictures/background.jpg");
-//background.loadFromFile("maps/Map1.jpg");
-
+    background.loadFromFile("menuPictures/background.jpg");
     menuBackground.setTexture(background);
     menuBackground.setPosition(0,0);
 
-    menuNum=menuSelection(win,newgame,loadgame,exit);
+    int menuNum=0;
 
-    menuNewGame.setTexture(newgame);
+  while (window.isOpen())
+    {
+
+
+
+
+    menuNum=menuSelection(window,bt,menuNewGame,menuLoadGame,menuExit);
+
     menuNewGame.setPosition(50,50);
 
-    menuLoadGame.setTexture(loadgame);
+
     menuLoadGame.setPosition(50,150);
 
-    menuExit.setTexture(exit);
+
     menuExit.setPosition(50,250);
 
 
@@ -95,31 +118,35 @@ background.loadFromFile("menuPictures/background.jpg");
 
 
 			if (menuNum == 1)  {
-                    gameClient(win,map);
-                   // win.clear();
+
+                    gameClient(window,map);
+
+
+
                     }
 
+
 			if (menuNum == 2)  {}
-			if (menuNum == 3)  { win.close();}
+			if (menuNum == 3)  { window.close();}
 
 		}
 
 
         sf::Event event;
-        while (win.pollEvent(event))
+        while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
             {
-                win.close();
+                window.close();
             }
         }
 
-      win.clear();
-      win.draw(menuBackground);
-      win.draw(menuNewGame);
-      win.draw(menuLoadGame);
-      win.draw(menuExit);
-      win.display();
+      window.clear();
+      window.draw(menuBackground);
+      window.draw(menuNewGame);
+      window.draw(menuLoadGame);
+      window.draw(menuExit);
+      window.display();
       menuNum=0;
     }
 
