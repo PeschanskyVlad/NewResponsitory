@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1461348275 source:e:\ruslanstasks\lab2\lab2dll1\main.cpp
+1461391212 source:e:\ruslanstasks\lab2\lab2dll1\main.cpp
 	"main.h"
 
-1461346943 e:\ruslanstasks\lab2\lab2dll1\main.h
+1461391212 e:\ruslanstasks\lab2\lab2dll1\main.h
 	<windows.h>
 	"queue.h"
 

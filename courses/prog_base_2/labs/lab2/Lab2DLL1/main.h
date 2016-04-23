@@ -20,7 +20,8 @@ extern "C"
 #endif
 
 #include "queue.h"
-void DLL_EXPORT check(Queue_t queue);
+bool DLL_EXPORT check(Queue_t queue);
+void DLL_EXPORT react(Queue_t queue);
 
 #ifdef __cplusplus
 }

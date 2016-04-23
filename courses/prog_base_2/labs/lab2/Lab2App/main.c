@@ -9,7 +9,7 @@
 
 
 typedef bool (*check_f)(Queue_t queue);
-typedef void (*react_f)(void);
+typedef void (*react_f)(Queue_t queue);
 
 typedef struct dynamic_s {
     HANDLE hLib;
@@ -37,6 +37,10 @@ int main()
         printf("Can't get compare function!\n");
         return 1;
     }
+    if (NULL == dll->react) {
+        printf("Can't get compare function!\n");
+        return 1;
+    }
 
     puts("Dynamic loaded!");
 
@@ -46,7 +50,9 @@ int main()
         puts("\nEnter queue element.");
         scanf("%i",&tempQueueElement);
         Queue_enqueue(queue, tempQueueElement);
-        dll->check(queue);
+        if(dll->check(queue)){
+            dll->react(queue);
+        }
         Queue_print(queue);
         printf("%i\n",Queue_getSum(queue));
         }

@@ -1,15 +1,20 @@
 #include "main.h"
 
 // a sample exported function
-void DLL_EXPORT check(Queue_t queue)
+bool DLL_EXPORT check(Queue_t queue)
 {
-    int tempSize=Queue_getSize(queue);
     if(Queue_tail(queue)<0){
-        for(int i=0;i<tempSize-1;i++){
+     return true;
+    }
+     return false;
+
+}
+
+void DLL_EXPORT react(Queue_t queue){
+    int tempSize=Queue_getSize(queue);
+    for(int i=0;i<tempSize-1;i++){
             Queue_dequeue(queue);
         }
-    }
-
 }
 
 extern "C" DLL_EXPORT BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
