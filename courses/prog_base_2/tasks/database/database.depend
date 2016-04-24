@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1461541384 source:e:\ruslan_practice\database\freelanser_db.c
+	"freelanser.h"
+	"freelanser_db.h"
+	<sqlite3.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1461540205 source:e:\ruslan_practice\database\main.c
+	<stdio.h>
+	<stdlib.h>
+	"freelanser.h"
+	"freelanser_db.h"
+
+1461537290 source:e:\ruslan_practice\database\freelanser.c
+	<stdlib.h>
+	<stdio.h>
+	"freelanser.h"
+
+1461536157 e:\ruslan_practice\database\freelanser.h
+
+1461537154 e:\ruslan_practice\database\freelanser_db.h
+	<stdlib.h>
+	<time.h>
+	"freelanser.h"
+
+1450771366 e:\ruslan_practice\database\sqlite\sqlite3.h
+	<stdarg.h>
+
