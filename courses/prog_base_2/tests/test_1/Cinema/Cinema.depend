@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1463827618 source:e:\kr\cinema\main.c
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"list.h"
+
+1463828742 source:e:\kr\cinema\list.c
+	"list.h"
+
+1463827555 e:\kr\cinema\list.h
+
