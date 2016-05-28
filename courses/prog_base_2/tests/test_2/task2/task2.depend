@@ -145,3 +145,16 @@
 	<libxml/parser.h>
 	<libxml/encoding.h>
 
+1464429866 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tests\test_2\task2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"server.h"
+
+1464435054 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tests\test_2\task2\server.h
+	"socket.h"
+	<libxml/parser.h>
+	<libxml/tree.h>
+	<time.h>
+
+1463817492 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tests\test_2\task2\socket.h
+

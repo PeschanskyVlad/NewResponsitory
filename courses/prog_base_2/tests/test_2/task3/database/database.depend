@@ -1,0 +1,244 @@
+# depslib dependency file v1.0
+1461541384 source:e:\ruslan_practice\database\freelanser_db.c
+	"freelanser.h"
+	"freelanser_db.h"
+	<sqlite3.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1461540205 source:e:\ruslan_practice\database\main.c
+	<stdio.h>
+	<stdlib.h>
+	"freelanser.h"
+	"freelanser_db.h"
+
+1461537290 source:e:\ruslan_practice\database\freelanser.c
+	<stdlib.h>
+	<stdio.h>
+	"freelanser.h"
+
+1461536157 e:\ruslan_practice\database\freelanser.h
+
+1461537154 e:\ruslan_practice\database\freelanser_db.h
+	<stdlib.h>
+	<time.h>
+	"freelanser.h"
+
+1450771366 e:\ruslan_practice\database\sqlite\sqlite3.h
+	<stdarg.h>
+
+1461537290 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser.c
+	<stdlib.h>
+	<stdio.h>
+	"freelanser.h"
+
+1461536157 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser.h
+
+1461541773 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser_db.c
+	"freelanser.h"
+	"freelanser_db.h"
+	<sqlite3.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1461537154 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser_db.h
+	<stdlib.h>
+	<time.h>
+	"freelanser.h"
+
+1450771366 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\sqlite\sqlite3.h
+	<stdarg.h>
+
+1461540205 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\main.c
+	<stdio.h>
+	<stdlib.h>
+	"freelanser.h"
+	"freelanser_db.h"
+
+1461537290 source:e:\kr2\task3\database\freelanser.c
+	<stdlib.h>
+	<stdio.h>
+	"freelanser.h"
+
+1464438169 e:\kr2\task3\database\freelanser.h
+	"list.h"
+
+1461541773 source:e:\kr2\task3\database\freelanser_db.c
+	"freelanser.h"
+	"freelanser_db.h"
+	<sqlite3.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1464439310 e:\kr2\task3\database\freelanser_db.h
+	<stdlib.h>
+	<time.h>
+	"freelanser.h"
+	"list.h"
+	"server.h"
+	"socket.h"
+	"server.h"
+
+1450771366 e:\kr2\task3\database\sqlite\sqlite3.h
+	<stdarg.h>
+
+1464441041 source:e:\kr2\task3\database\main.c
+	<stdio.h>
+	<stdlib.h>
+	"freelanser.h"
+	"freelanser_db.h"
+	"list.h"
+
+1464438776 e:\kr2\task3\database\list.h
+	<stdlib.h>
+
+1463956080 source:e:\kr2\task3\database\list.c
+	"list.h"
+
+1464439749 e:\kr2\task3\database\server.h
+	"socket.h"
+	<libxml/parser.h>
+	<libxml/tree.h>
+	<time.h>
+	"list.h"
+
+1463817492 e:\kr2\task3\database\socket.h
+
+1288879124 c:\libs\libxml2-2.7.8.win32\include\libxml\parser.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+	<libxml/hash.h>
+	<libxml/valid.h>
+	<libxml/entities.h>
+	<libxml/xmlerror.h>
+	<libxml/xmlstring.h>
+	<libxml/encoding.h>
+	<libxml/xmlIO.h>
+	<libxml/globals.h>
+
+1308508838 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlversion.h
+	<libxml/xmlexports.h>
+	<ansidecl.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlexports.h
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\tree.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/xmlstring.h>
+	<libxml/xmlregexp.h>
+	<libxml/xmlmemory.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlstring.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlregexp.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\dict.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlmemory.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/threads.h>
+	<libxml/globals.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\threads.h
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\globals.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xmlerror.h>
+	<libxml/SAX.h>
+	<libxml/SAX2.h>
+	<libxml/xmlmemory.h>
+	<libxml/threads.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlerror.h
+	<libxml/parser.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\sax.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\xlink.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\sax2.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\hash.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/dict.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\valid.h
+	<libxml/xmlversion.h>
+	<libxml/xmlerror.h>
+	<libxml/tree.h>
+	<libxml/list.h>
+	<libxml/xmlautomata.h>
+	<libxml/xmlregexp.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\list.h
+	<libxml/xmlversion.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlautomata.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/xmlregexp.h>
+
+1286861132 c:\libs\libxml2-2.7.8.win32\include\libxml\entities.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1288882432 c:\libs\libxml2-2.7.8.win32\include\libxml\encoding.h
+	<libxml/xmlversion.h>
+	<iconv.h>
+	<unicode/ucnv.h>
+	<libxml/tree.h>
+
+1146767014 c:\libs\iconv-1.9.2.win32\include\iconv.h
+	"iconv.h"
+	<stddef.h>
+	<errno.h>
+
+1253802720 c:\libs\libxml2-2.7.8.win32\include\libxml\xmlio.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+	<libxml/tree.h>
+	<libxml/parser.h>
+	<libxml/encoding.h>
+
+1463817492 source:e:\kr2\task3\database\socket.c
+	<winsock2.h>
+	"socket.h"
+
+1464440694 source:e:\kr2\task3\database\server.c
+	<stdio.h>
+	<stdlib.h>
+	"server.h"
+	"freelanser.h"
+	"freelanser_db.h"
+
