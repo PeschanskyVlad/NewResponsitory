@@ -28,3 +28,32 @@
 1450771366 e:\ruslan_practice\database\sqlite\sqlite3.h
 	<stdarg.h>
 
+1461537290 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser.c
+	<stdlib.h>
+	<stdio.h>
+	"freelanser.h"
+
+1461536157 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser.h
+
+1461541773 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser_db.c
+	"freelanser.h"
+	"freelanser_db.h"
+	<sqlite3.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1461537154 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\freelanser_db.h
+	<stdlib.h>
+	<time.h>
+	"freelanser.h"
+
+1450771366 c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\sqlite\sqlite3.h
+	<stdarg.h>
+
+1461540205 source:c:\users\vlad\documents\_repos\newresponsitory\courses\prog_base_2\tasks\database\main.c
+	<stdio.h>
+	<stdlib.h>
+	"freelanser.h"
+	"freelanser_db.h"
+

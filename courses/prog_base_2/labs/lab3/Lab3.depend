@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1463772666 source:e:\ruslanstasks\lab3\list.c
+
+1463758104 e:\ruslanstasks\lab3\list.h
+
+1463993343 source:e:\ruslanstasks\lab3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"WatchMe.h"
+	"serials.h"
+	"user.h"
+
+1463990634 e:\ruslanstasks\lab3\watchme.h
+
+1463990602 source:e:\ruslanstasks\lab3\watchmenow.c
+	"WatchMe.h"
+	"serials.h"
+	"user.h"
+
+1463990434 e:\ruslanstasks\lab3\serials.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdbool.h>
+
+1463990309 source:e:\ruslanstasks\lab3\serials.c
+	<stdlib.h>
+	"serials.h"
+	"time.h"
+	"user.h"
+
+1463992507 source:e:\ruslanstasks\lab3\user.c
+	<stdio.h>
+	<stdlib.h>
+	"WatchMe.h"
+	"serials.h"
+	"user.h"
+
+1463992485 e:\ruslanstasks\lab3\user.h
+
+1463993235 source:e:\ruslanstasks\lab3\test.c
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"user.h"
+
+1426175038 c:\program files (x86)\cmocka\include\cmocka.h
+
