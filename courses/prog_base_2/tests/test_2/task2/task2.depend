@@ -4,7 +4,7 @@
 	<stdlib.h>
 	"server.h"
 
-1464430715 e:\kr2\task2\server.h
+1464435054 e:\kr2\task2\server.h
 	"socket.h"
 	<libxml/parser.h>
 	<libxml/tree.h>
@@ -12,7 +12,7 @@
 
 1463817492 e:\kr2\task2\socket.h
 
-1464430253 source:e:\kr2\task2\server.c
+1464436187 source:e:\kr2\task2\server.c
 	<stdio.h>
 	<stdlib.h>
 	"server.h"

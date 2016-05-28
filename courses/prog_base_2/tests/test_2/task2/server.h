@@ -4,6 +4,8 @@
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <time.h>
+#define CHAR_LENGTH 1000
+#define BUFFER_LENGTH 100000
 
 typedef struct gdata gdata_t;
 
