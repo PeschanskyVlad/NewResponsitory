@@ -34,6 +34,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="gameClient.cpp" />
+		<Unit filename="gameClient.h" />
+		<Unit filename="gameMenu.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenuHeader.h" />

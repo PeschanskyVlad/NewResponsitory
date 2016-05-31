@@ -1,13 +1,9 @@
 #include "mainMenuHeader.h"
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Color.hpp>
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <string.h>
-#include <SFML/Window.hpp>
+
 
 #define max_map_name_length 100
+
+
 
 struct buttonTextures{
     sf::Texture newgame1;
@@ -71,15 +67,18 @@ realization of backlight buttons
 /*
 draw menu
 */
-
-
 void mainMenu(sf::RenderWindow & window){
     struct buttonTextures bt;
     bt.newgame1.loadFromFile("menuPictures/newGame.png");
+
     bt.newgame2.loadFromFile("menuPictures/newGameConfirmed.png");
+
     bt.loadgame1.loadFromFile("menuPictures/loadGame.png");
+
     bt.loadgame2.loadFromFile("menuPictures/loadGameConfirmed.png");
+
     bt.exit1.loadFromFile("menuPictures/exit.png");
+
     bt.exit2.loadFromFile("menuPictures/exitConfirmed.png");
 
 
@@ -87,11 +86,13 @@ void mainMenu(sf::RenderWindow & window){
     memset(map,0,max_map_name_length);
     strcpy(map,"maps/Map1.jpg");
 
+    sf::Texture mainBackground;
 
-    sf::Texture background,newgame,loadgame,exit;
     sf::Sprite menuBackground, menuNewGame,menuLoadGame,menuExit;
-    background.loadFromFile("menuPictures/background.jpg");
-    menuBackground.setTexture(background);
+
+    mainBackground.loadFromFile("menuPictures/background.jpg");
+
+    menuBackground.setTexture(mainBackground);
     menuBackground.setPosition(0,0);
 
     int menuNum=0;
@@ -149,6 +150,28 @@ void mainMenu(sf::RenderWindow & window){
       window.display();
       menuNum=0;
     }
+/*
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    while (win.isOpen())
+    {
+        sf::Event event;
+        while (win.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                win.close();
+            }
+        }
+
+        win.clear();
+        win.draw(shape);
+        win.display();
+    }
+
+    return;*/
+
 
 }
 
