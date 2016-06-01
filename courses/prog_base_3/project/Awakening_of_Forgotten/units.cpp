@@ -1,7 +1,7 @@
 #include "mainMenuHeader.h"
 #include "gameClient.h"
 
-unit_t * newTank(){
+unit_t * newTank(int player){
 
 unit_t * self = (unit_t*)malloc(sizeof(unit_t));
 
@@ -18,9 +18,9 @@ strcpy(self->sprites.path[3],"units/tank/tankS.png");
 strcpy(self->sprites.path[4],"units/tank/tankD.png");
 
 
-
-self->aPoints=10;
-self->cPoints=10;
+self->player = player;
+self->aPoints=3;
+self->cPoints=3;
 self->armor=3;
 self->dmg=10;
 self->hp=50;

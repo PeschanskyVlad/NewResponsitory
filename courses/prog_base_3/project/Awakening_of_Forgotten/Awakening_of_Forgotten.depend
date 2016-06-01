@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1464640272 source:e:\kursach\awakening_of_forgotten\main.cpp
+1464678904 source:e:\kursach\awakening_of_forgotten\main.cpp
 	"mainMenuHeader.h"
 
 1464637703 e:\kursach\awakening_of_forgotten\mainmenuheader.h
@@ -393,7 +393,7 @@
 1464636864 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
 	"mainMenuHeader.h"
 
-1464654184 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
+1464763725 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
 	"mainMenuHeader.h"
 
 1464637703 source:e:\kursach\awakening_of_forgotten\gamemenu.cpp
@@ -406,8 +406,15 @@
 	<windows.h>
 	<string.h>
 
-1464654184 e:\kursach\awakening_of_forgotten\gameclient.h
+1464763064 e:\kursach\awakening_of_forgotten\gameclient.h
 	"mainMenuHeader.h"
+	<math.h>
+	<string>
+	<iostream>
+	<iomanip>
+	<queue>
+	<math.h>
+	<ctime>
 
 1417734560 c:\newsfml\sfml-2.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1497,7 +1504,17 @@
 	"gameClient.h"
 	"mainMenuHeader.h"
 
-1464654184 source:e:\kursach\awakening_of_forgotten\units.cpp
+1464722550 source:e:\kursach\awakening_of_forgotten\units.cpp
 	"mainMenuHeader.h"
 	"gameClient.h"
+
+1464762219 source:e:\kursach\awakening_of_forgotten\minw.cpp
+	"gameClient.h"
+	"mainMenuHeader.h"
+	<iostream>
+	<iomanip>
+	<queue>
+	<string>
+	<math.h>
+	<ctime>
 

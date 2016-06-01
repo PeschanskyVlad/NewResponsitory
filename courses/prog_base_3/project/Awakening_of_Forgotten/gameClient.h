@@ -8,12 +8,22 @@
 #define charLength 100
 #define cellNumY 19
 #include "mainMenuHeader.h"
+#include <math.h>
+#define WALL 1
+#include <string>
+
+#include <iostream>
+#include <iomanip>
+#include <queue>
+
+#include <math.h>
+#include <ctime>
+
 
 #define pathCount 6
 
 
-
-
+ enum Unit{ TANK , MARINE };
 
 typedef struct sprite{
    // sf::Sprite north;
@@ -42,6 +52,9 @@ typedef struct sprite{
    */
 }sprite_t;
 
+
+
+
 typedef struct object{
 int status;
 int  process;
@@ -65,9 +78,9 @@ typedef struct unit{
     int hp;
     unsigned int dmg;
     unsigned int armor;
-
-
+    int player;
 }unit_t;
+
 
 
 
@@ -75,6 +88,8 @@ typedef struct unit{
 typedef struct cell{
     int X;
     int Y;
+    int iX;
+    int jY;
     int passability;
     int status;
     int obj_un_null;
@@ -82,6 +97,12 @@ typedef struct cell{
     unit_t * unit;
 
 }cell_t;
+
+
+typedef struct selection{
+    cell_t * cell;
+    int status;
+}selection_t;
 
 typedef struct gameMap{
     cell_t cell[cellNumX][cellNumY];
@@ -98,7 +119,13 @@ void cameraDown(gameMap_t * self);
 void cameraMouseMove(sf::RenderWindow & window,gameMap_t * self);
 void mouseEvents(sf::RenderWindow & window,gameMap_t * self);*/
 
-unit_t * newTank();
+unit_t * newTank(int player);
+
+
+int calculateLength(std::string path);
+
+std::string pathFind( const int & xStart, const int & yStart,
+                 const int & xFinish, const int & yFinish ,gameMap_t * self);
 
 
 
