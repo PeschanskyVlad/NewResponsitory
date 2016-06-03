@@ -19,11 +19,14 @@
 #include <math.h>
 #include <ctime>
 
+#define MAXUNITS 20
 
-#define pathCount 6
+#define pathCount 10
 
 
  enum Unit{ TANK , MARINE };
+
+ enum Turn{PLAYER1_TURN,PLAYER2_TURN};
 
 typedef struct sprite{
    // sf::Sprite north;
@@ -54,7 +57,6 @@ typedef struct sprite{
 
 
 
-
 typedef struct object{
 int status;
 int  process;
@@ -70,7 +72,7 @@ int damage;
 typedef struct unit{
     int aPoints;
     int cPoints;
-
+    int aRange;
     int direction;
 
     char name[charLength];
@@ -79,6 +81,7 @@ typedef struct unit{
     unsigned int dmg;
     unsigned int armor;
     int player;
+  //  int type;
 }unit_t;
 
 
@@ -111,6 +114,18 @@ typedef struct gameMap{
     int scrollingSpeed;
 }gameMap_t;
 
+typedef struct player{
+    unsigned int resources;
+    unit_t units[MAXUNITS];
+    unsigned int currentUnits;
+}player_t;
+
+typedef struct cursor{
+int status;
+cell_t * cell;
+}cursor_t;
+
+
 /*
 void cameraLeft(gameMap_t * self);
 void cameraRight(gameMap_t * self);
@@ -120,6 +135,7 @@ void cameraMouseMove(sf::RenderWindow & window,gameMap_t * self);
 void mouseEvents(sf::RenderWindow & window,gameMap_t * self);*/
 
 unit_t * newTank(int player);
+void deleteUnit(unit_t * self);
 
 
 int calculateLength(std::string path);
