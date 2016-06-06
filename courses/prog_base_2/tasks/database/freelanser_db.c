@@ -191,7 +191,6 @@ void change_freeLanser(dataBase * self, freeLanser_t * fl)
     rc = sqlite3_bind_text(stmt, 1, fl->name, strlen(fl->name), SQLITE_STATIC);
 
     rc = sqlite3_bind_text(stmt, 2, fl->surname, strlen(fl->surname), SQLITE_STATIC);
-   // puts(fl->surname);
 
     rc = sqlite3_bind_double(stmt, 3, (fl->salary));
 
@@ -200,12 +199,10 @@ void change_freeLanser(dataBase * self, freeLanser_t * fl)
     rc = sqlite3_bind_text(stmt, 5, fl->birthDate, strlen(fl->birthDate), SQLITE_STATIC);
 
     rc = sqlite3_bind_int(stmt, 6, fl->id);
-    //printf("%i",fl->id);
 
 
 
     rc = sqlite3_step(stmt);
-   // printf("\n%i\n",rc);
     sqlite3_finalize(stmt);
 
     return;
