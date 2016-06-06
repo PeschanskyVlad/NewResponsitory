@@ -11,6 +11,7 @@
 #include <math.h>
 #define WALL 1
 #include <string>
+#include <time.h>
 
 #include <iostream>
 #include <iomanip>
@@ -21,7 +22,7 @@
 
 #define MAXUNITS 20
 
-#define pathCount 10
+#define pathCount 20
 
 
  enum Unit{ TANK , MARINE };
@@ -74,7 +75,7 @@ typedef struct unit{
     int cPoints;
     int aRange;
     int direction;
-
+    char type[charLength];
     char name[charLength];
     sprite_t sprites;
     int hp;
@@ -115,9 +116,12 @@ typedef struct gameMap{
 }gameMap_t;
 
 typedef struct player{
-    unsigned int resources;
-    unit_t units[MAXUNITS];
-    unsigned int currentUnits;
+    unsigned int resourcesPlayer1;
+    unsigned int resourcesPlayer2;
+    unsigned int currentUnitsP1;
+    unsigned int currentUnitsP2;
+    unsigned int maxUnits;
+
 }player_t;
 
 typedef struct cursor{

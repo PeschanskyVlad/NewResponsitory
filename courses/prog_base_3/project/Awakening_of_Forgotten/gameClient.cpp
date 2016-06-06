@@ -1,5 +1,13 @@
 #include "mainMenuHeader.h"
 
+
+
+void pData(sf::RenderWindow & window,selection_t * cUnit);
+
+
+void drawMinMap(sf::RenderWindow & window,int currentPlayer,gameMap_t * self);
+void drawPlayer(sf::RenderWindow & window,int player);
+
 object_t * newObject(){
 object_t * self = (object_t*)malloc(sizeof(struct object));
 return self;
@@ -18,6 +26,8 @@ void deleteSelect(selection_t * self){
 self->cell = NULL;
 self->status = 0;
 }
+
+
 
 
 
@@ -104,33 +114,24 @@ void cameraMouseMove(sf::RenderWindow & window,gameMap_t * self){
    if (sf::IntRect(200, 0, 1290, 200).contains(sf::Mouse::getPosition(window))){
        cameraUp(self);
    }
-   //Left
+  // Left
      if (sf::IntRect(0, 200, 200, 680).contains(sf::Mouse::getPosition(window))){
-       cameraLeft(self);
-   }
+    cameraLeft(self);
+  }
    //Down
     if (sf::IntRect(200, 880, 1520, 200).contains(sf::Mouse::getPosition(window))){
        cameraDown(self);
    }
    //Right
-    if (sf::IntRect(1720, 200, 200, 680).contains(sf::Mouse::getPosition(window))){
-       cameraRight(self);
-    }
-   //Down Left
-   if (sf::IntRect(0, 880, 200, 200).contains(sf::Mouse::getPosition(window))){
-        cameraDown(self);
-        cameraLeft(self);
-   }
-   //Up Right
- //  if (sf::IntRect(1720, 0, 200, 200).contains(sf::Mouse::getPosition(window))){
- //      cameraUp(self);
- //      cameraRight(self);
-  // }
-   //Down Right
-   if (sf::IntRect(1720, 880, 200, 200).contains(sf::Mouse::getPosition(window))){
+   // if (sf::IntRect(1720, 200, 200, 680).contains(sf::Mouse::getPosition(window))){
+   //    cameraRight(self);
+   // }
+   //dDown Left
+  if (sf::IntRect(0, 880, 200, 200).contains(sf::Mouse::getPosition(window))){
        cameraDown(self);
-       cameraRight(self);
-   }
+       cameraLeft(self);
+}
+
 }
 
 
@@ -138,21 +139,33 @@ void cameraMouseMove(sf::RenderWindow & window,gameMap_t * self){
 
 
 
-int gameSelection(sf::RenderWindow & window,sf::Sprite & gameMenu,sf::Texture & menu1,sf::Texture & menu2,sf::Sprite & gameEndTurn,sf::Texture & E1,sf::Texture & E2){
+int gameSelection(sf::RenderWindow & window,sf::Sprite & gameMenu,sf::Texture & menu1,sf::Texture & menu2,sf::Sprite & gameEndTurn,sf::Texture & E1,sf::Texture & E2,sf::Sprite & cTc,sf::Texture & cT1,sf::Texture & cT2){
     if (sf::IntRect(1729, 0, 209, 104).contains(sf::Mouse::getPosition(window))) {
         gameMenu.setTexture(menu2);
         gameEndTurn.setTexture(E1);
+        cTc.setTexture(cT1);
        return 1;
     }else if(sf::IntRect(1500, 0, 209, 104).contains(sf::Mouse::getPosition(window))){
         gameMenu.setTexture(menu1);
         gameEndTurn.setTexture(E2);
+        cTc.setTexture(cT1);
         return 2;
     }else{
+        if(sf::IntRect(1680, 750, 200, 100).contains(sf::Mouse::getPosition(window))){
+
+        gameMenu.setTexture(menu1);
+        gameEndTurn.setTexture(E1);
+        cTc.setTexture(cT2);
+        return 3;
+
+        }else{
 
     gameMenu.setTexture(menu1);
     gameEndTurn.setTexture(E1);
+    cTc.setTexture(cT1);
     return 0;
     }
+}
 }
 
 int cursorConfirm(sf::RenderWindow & window,gameMap_t * self,sf::Sprite & cursorXY,cursor_t * gCur){
@@ -220,16 +233,19 @@ void drawUnits(gameMap_t * self,sf::RenderWindow & window){
 
 }
 
-void selectUnit(gameMap_t * self,sf::RenderWindow & window,sf::Sprite & cSel,selection_t*select){
+void selectUnit(gameMap_t * self,sf::RenderWindow & window,sf::Sprite & cSel,selection_t*select,unsigned int player){
 
     for(int i = 0;i<cellNumX;i++){
             for(int j = 0;j<cellNumY;j++){
-                    if (sf::IntRect(self->cell[i][j].X, self->cell[i][j].Y, cell_width, cell_height).contains(sf::Mouse::getPosition(window))&&self->cell[i][j].obj_un_null==1&&sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                    if(self->cell[i][j].unit!=NULL){
+                    if (sf::IntRect(self->cell[i][j].X, self->cell[i][j].Y, cell_width, cell_height).contains(sf::Mouse::getPosition(window))&&self->cell[i][j].obj_un_null==1&&sf::Mouse::isButtonPressed(sf::Mouse::Left)&&self->cell[i][j].unit->player == player) {
 
                             cSel.setPosition(self->cell[i][j].X,self->cell[i][j].Y);
                             setSelect(&self->cell[i][j],select);
 
                     }
+                    }
+
             }
         }
 
@@ -252,7 +268,20 @@ void addUnit(gameMap_t * self,sf::RenderWindow & window,int pl, Unit type,int X,
  }
 }
 
-void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf::Sprite & aCell,sf::Sprite & aEnemy, cursor_t * gCur,sf::Sprite & gameBackground,sf::Sprite & gameInterface,sf::Sprite & gameMenu,sf::Sprite & gameEndTurn){
+void endTurn(gameMap_t * self){
+
+    for(int i = 0;i<cellNumX;i++){
+            for(int j = 0;j<cellNumY;j++){
+                if(self->cell[i][j].unit!=NULL){
+                    self->cell[i][j].unit->cPoints = self->cell[i][j].unit->aPoints;
+                }
+
+            }
+    }
+
+}
+
+void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf::Sprite & aCell,sf::Sprite & aEnemy, cursor_t * gCur,sf::Sprite & gameBackground,sf::Sprite & gameInterface,sf::Sprite & gameMenu, sf::Sprite & gameEndTurn,int player,sf::Sprite & cTc){
 
     if(cUnit->status==0){
         return;
@@ -290,6 +319,8 @@ void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf
 
                                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
+                                    cUnit->cell->unit->cPoints-=calculateLength(tmp);
+
                                     int tmpInt = tmp[0] - 48;
 
                                     cUnit->cell->unit->direction=tmpInt;
@@ -317,8 +348,7 @@ void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf
                                     sf::Texture tmpT;
                                     sf::Sprite tmpS;
 
-                                    //unit_t tmpUnit =
-                                   // tmpT.loadFromFile(self->cell[i][j].unit->sprites.path[self->cell[i][j].unit->direction]);
+
                                     tmpT.loadFromFile(cUnit->cell->unit->sprites.path[cUnit->cell->unit->direction]);
                                     tmpS.setTexture(tmpT);
 
@@ -356,18 +386,28 @@ void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf
                                            }
 
                                             Sleep(20);
-                                            window.clear(sf::Color::Black);
 
+                                            window.clear(sf::Color::Black);
                                             window.draw(gameBackground);
                                             drawUnits(self,window);
 
                                             window.draw(gameInterface);
                                             window.draw(gameMenu);
+                                            drawMinMap(window,player,self);
                                             window.draw(gameEndTurn);
+                                            drawPlayer(window,player);
+
+
 
 
                                             tmpS.setPosition(tmpCX,tmpCY);
+
                                             window.draw(tmpS);
+                                            window.draw(cTc);
+
+                                            pData(window,cUnit);
+
+
                                             window.display();
 
                                     }
@@ -395,11 +435,119 @@ void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf
 
                    }
 
-                    if(tmpSt == 1 && tmp!="" && calculateLength(tmp)<=cUnit->cell->unit->aRange){
+                    if(tmpSt == 1 && tmp!="" && calculateLength(tmp)<=cUnit->cell->unit->aRange&&cUnit->cell->unit->cPoints>0){
 
 
                          aEnemy.setPosition(self->cell[i][j].X,self->cell[i][j].Y);
                          window.draw(aEnemy);
+
+                         if(gCur->status==1&&gCur->cell->iX == i &&gCur->cell->jY == j&& self->cell[gCur->cell->iX][gCur->cell->jY].unit != NULL && cUnit->cell->unit->player!=self->cell[i][j].unit->player){
+
+                                if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
+                                        if(added!=1){
+                                        self->cell[i][j].obj_un_null = tmpSt;
+                                        }
+
+                                        int tmpD = tmp[0] - 48;
+                                        cUnit->cell->unit->direction = tmpD;
+
+                                            window.clear(sf::Color::Black);
+                                            window.draw(gameBackground);
+
+                                            drawUnits(self,window);
+
+                                            window.draw(gameInterface);
+                                            window.draw(gameMenu);
+                                            drawMinMap(window,player,self);
+                                            window.draw(gameEndTurn);
+                                            drawPlayer(window,player);
+                                            pData(window,cUnit);
+
+
+
+                                        sf::Texture tmpT;
+                                        sf::Sprite tmpS;
+                                        tmpT.loadFromFile(self->cell[i][j].unit->sprites.path[10]);
+                                        tmpS.setTexture(tmpT);
+                                        tmpS.setPosition(self->cell[i][j].X + rand()%50+20,self->cell[i][j].Y + rand()%50+20);
+                                        window.draw(tmpS);
+
+                                        sf::Texture tmpT1;
+                                        sf::Sprite tmpS1;
+
+
+
+                                       tmpT1.loadFromFile(self->cell[i][j].unit->sprites.path[11+cUnit->cell->unit->direction]);
+
+
+                                        tmpS1.setTexture(tmpT1);
+                                        tmpS1.setPosition(cUnit->cell->X,cUnit->cell->Y);
+
+
+                                        window.draw(tmpS1);
+                                        window.display();
+                                        Sleep(400);
+
+
+
+                                      cUnit->cell->unit->cPoints-=1;
+                                      int tmpDmg = cUnit->cell->unit->dmg -  self->cell[i][j].unit->armor;
+                                      if(tmpDmg<0){tmpDmg=0;}
+                                      self->cell[i][j].unit->hp-=tmpDmg;
+
+
+
+
+
+
+                                      if(self->cell[i][j].unit->hp<=0){
+
+                                        sf::Texture tmpT;
+                                        sf::Sprite tmpS;
+
+
+                                        tmpT.loadFromFile(self->cell[i][j].unit->sprites.path[8]);
+                                        tmpS.setTexture(tmpT);
+                                        tmpS.setPosition(self->cell[i][j].X,self->cell[i][j].Y);
+
+
+
+                                            window.clear(sf::Color::Black);
+                                            window.draw(gameBackground);
+                                            drawUnits(self,window);
+
+                                            window.draw(gameInterface);
+                                            window.draw(gameMenu);
+                                            drawMinMap(window,player,self);
+                                            window.draw(gameEndTurn);
+                                            drawPlayer(window,player);
+
+                                            pData(window,cUnit);
+                                            window.draw(tmpS);
+
+
+
+
+                                        window.display();
+                                        Sleep(400);
+
+                                        deleteUnit(self->cell[i][j].unit);
+                                        self->cell[i][j].unit = NULL;
+                                        self->cell[i][j].obj_un_null = 0;
+                                        return;
+
+
+
+
+                                      }
+
+                               }
+
+
+                         }
+
+
 
                    }
 
@@ -425,9 +573,9 @@ void  findWay(gameMap_t * self,sf::RenderWindow & window, selection_t * cUnit,sf
 }
 
 void createMap(gameMap_t * map){
-    map->displacementX=0;
+        map->displacementX=0;
         map->displacementY=0;
-        map->scrollingSpeed=3;
+        map->scrollingSpeed=6;
 
         for(int i = 0;i<cellNumX;i++){
             for(int j = 0;j<cellNumY;j++){
@@ -435,13 +583,254 @@ void createMap(gameMap_t * map){
                 map->cell[i][j].Y = (map_height-cell_height*cellNumY)/2+j*cell_height;
                 map->cell[i][j].obj_un_null=0;
                 map->cell[i][j].unit = NULL;
-
+                map->cell[i][j].object = NULL;
                 map->cell[i][j].iX =i;
                 map->cell[i][j].jY =j;
 
             }
         }
 }
+
+
+void pData(sf::RenderWindow & window,selection_t * cUnit){
+
+                                    std::string tmp;
+                                    char tmpS[100];
+                                    sf::Font font;
+                                    font.loadFromFile("gameInterface/arial.ttf");
+                                    sf::Text text;
+                                    text.setFont(font);
+                                    text.setColor(sf::Color::Black);
+
+                                    text.setCharacterSize(18);
+
+                                    tmp+=cUnit->cell->unit->type;
+                                    tmp+=": ";
+                                    tmp+=cUnit->cell->unit->name;
+
+
+                                    text.setPosition(90,752);
+
+                                    text.setString(tmp);
+                                    window.draw(text);
+
+                                    sprintf(tmpS,"Points: %i\nHp: %i\nDamage: %i\nArmor: %i\n",cUnit->cell->unit->cPoints,cUnit->cell->unit->hp,cUnit->cell->unit->dmg,cUnit->cell->unit->armor);
+                                    text.setString(tmpS);
+                                    text.setPosition(90,965);
+                                      text.setCharacterSize(16);
+                                    window.draw(text);
+
+
+
+
+        sf::Texture tmpTexture;
+        sf::Sprite tmpSprite;
+        tmpTexture.loadFromFile(cUnit->cell->unit->sprites.path[9]);
+        tmpSprite.setTexture(tmpTexture);
+        tmpSprite.setPosition(41,798);
+        window.draw(tmpSprite);
+
+
+}
+
+void drawMinMap(sf::RenderWindow & window,int currentPlayer,gameMap_t * self){
+    for(int i = 0;i<cellNumX;i++){
+            for(int j = 0;j<cellNumY;j++){
+                sf::Texture tmpTexture;
+                sf::Sprite tmpSprite;
+
+                    if(self->cell[i][j].object!=NULL){
+                        tmpTexture.loadFromFile("gameInterface/mMapO.png");
+                        //tmpTexture.loadFromFile("gameInterface/mMapE.png");
+                        tmpSprite.setTexture(tmpTexture);
+                        tmpSprite.setPosition(33+i*10,41+j*10);
+                        window.draw(tmpSprite);
+                        continue;
+                    }
+
+                    if(self->cell[i][j].unit!=NULL){
+                        if(self->cell[i][j].unit->player==currentPlayer){
+                            tmpTexture.loadFromFile("gameInterface/mMapF.png");
+                             tmpSprite.setTexture(tmpTexture);
+                            tmpSprite.setPosition(33+i*10,41+j*10);
+                            window.draw(tmpSprite);
+                           //  continue;
+                        }else{
+                        tmpTexture.loadFromFile("gameInterface/mMapE.png");
+                        tmpSprite.setTexture(tmpTexture);
+                        tmpSprite.setPosition(33+i*10,41+j*10);
+                        window.draw(tmpSprite);
+                         //continue;
+                        }
+                    }
+
+                }
+               // tmpSprite.setTexture(tmpTexture);
+              //  tmpSprite.setPosition(33+i*10,41+j*10);
+               // window.draw(tmpSprite);
+            }
+}
+
+
+void drawPlayer(sf::RenderWindow & window,int player){
+                                    std::string tmp;
+                                    sf::Font font;
+                                    font.loadFromFile("gameInterface/SourceSansPro.ttf");
+                                    sf::Text text;
+                                    text.setFont(font);
+                                    text.setColor(sf::Color::White);
+
+                                    text.setCharacterSize(18);
+                                    if(player==0){tmp+="First player turn";}
+                                    if(player==1){tmp+="Second player turn";}
+                                    text.setPosition(150,5);
+                                    text.setString(tmp);
+                                    window.draw(text);
+}
+
+void createUnit(gameMap_t * self,player_t * player,int cPlayer,int type,sf::RenderWindow & window,selection_t * cUnit,sf::Sprite & gameBackground,sf::Sprite & gameInterface,sf::Sprite & gameMenu, sf::Sprite & gameEndTurn,sf::Sprite & cTc){
+
+    if(cPlayer == 0){
+
+            /*int tmdDX=self->displacementX+200;
+            int tmpDY = self->displacementY;
+
+            for(int i = 0;i<cellNumX;i++){
+            for(int j = 0;j<cellNumY;j++){
+
+              self->cell[i][j].X-=tmdDX;
+
+              self->cell[i][j].Y-=tmpDY;
+
+            }
+            }
+
+        self->displacementX=-200;
+        self->displacementY=0;*/
+
+       for(int i = 9;i<16;i++){
+        if(self->cell[i][0].unit==NULL&&self->cell[i][0].obj_un_null==0){
+            switch(type){
+            case 3:
+            self->cell[i][0].unit = newTank(cPlayer);
+
+                    sf::Texture tmpT;
+                    sf::Sprite tmpS;
+
+                    tmpT.loadFromFile(self->cell[i][0].unit->sprites.path[self->cell[i][0].unit->direction]);
+                    tmpS.setTexture(tmpT);
+                    int tmpX = self->cell[i][0].X;
+                    int tmpY = self->displacementY;
+
+            for(int j = 0;j<60;j++){
+                    tmpY+=5;
+                    tmpS.setPosition(tmpX,tmpY);
+
+
+                    window.clear(sf::Color::Black);
+                    window.draw(gameBackground);
+                    drawUnits(self,window);
+
+                    window.draw(gameInterface);
+                    window.draw(gameMenu);
+                    drawMinMap(window,cPlayer,self);
+                    window.draw(gameEndTurn);
+                    drawPlayer(window,cPlayer);
+                    window.draw(cTc);
+                   // pData(window,cUnit);
+                    window.draw(tmpS);
+                    window.display();
+            }
+
+            self->cell[i][0].obj_un_null=1;
+            return;
+            break;
+            }
+
+
+
+
+        }
+       }
+    return;
+        }
+
+
+
+
+      if(cPlayer == 1){
+
+          /* int tmdDX=self->displacementX+2500;
+           int tmdDY=self->displacementY+1400;
+
+
+    for(int i = 0;i<cellNumX;i++){
+            for(int j = 0;j<cellNumY;j++){
+              self->cell[i][j].X-=tmdDX;
+              self->cell[i][j].Y-=tmdDY;
+                }
+        }
+        self->displacementX=-2500;
+        self->displacementY=-1400;*/
+
+          for(int i = 27;i<34;i++){
+        if(self->cell[i][18].unit==NULL&&self->cell[i][18].obj_un_null==0){
+            switch(type){
+            case 3:
+            self->cell[i][18].unit = newTank(cPlayer);
+
+                    sf::Texture tmpT;
+                    sf::Sprite tmpS;
+
+                    tmpT.loadFromFile(self->cell[i][18].unit->sprites.path[self->cell[i][18].unit->direction]);
+                    tmpS.setTexture(tmpT);
+                    int tmpX = self->cell[i][18].X;
+
+                    int tmpY = self->displacementY;
+                    tmpY+=map_height;
+
+            for(int j = 0;j<80;j++){
+                    tmpY-=5;
+                    tmpS.setPosition(tmpX,tmpY);
+
+
+                    window.clear(sf::Color::Black);
+                    window.draw(gameBackground);
+                    drawUnits(self,window);
+
+                    window.draw(gameInterface);
+                    window.draw(gameMenu);
+                    drawMinMap(window,cPlayer,self);
+                    window.draw(gameEndTurn);
+                    drawPlayer(window,cPlayer);
+                    window.draw(cTc);
+                   // pData(window,cUnit);
+                    window.draw(tmpS);
+                    window.display();
+            }
+
+            self->cell[i][18].obj_un_null=1;
+            return;
+            break;
+            }
+
+
+
+
+        }
+       }
+
+
+
+
+
+
+    return;
+        }
+}
+
+
+
 
 
 
@@ -454,18 +843,20 @@ void gameClient(sf::RenderWindow & window,char * mapName){
         int i,/*displacementX=0,displacementY=0,*/ menu=0;
         gameMap_t map;
 
+       // int redrawMMAP = 1;
+
         cursor_t gCur;
         gCur.status = 0;
         gCur.cell = NULL;
 
 
 
-        player_t player1;
-        player_t player2;
+        player_t players;
+      //  player_t player2;
 
 
 
-        unsigned int CurrentPlayerTurn=0;
+        unsigned int currentPlayerTurn=0;
 
         selection_t select;
 
@@ -482,9 +873,12 @@ void gameClient(sf::RenderWindow & window,char * mapName){
         /*
         Set textures.
         */
-        sf::Texture background, interface_image,menu1,menu2,grind,cursor,pCourse,endTurn1,endTurn2,sel,enemy;
-        sf::Sprite gameBackground,gameInterface,gameMenu,gameGrind,gameCursor,aCell,gameEndTurn,cSel,cEnemy;
+        sf::Texture background, interface_image,menu1,menu2,grind,cursor,pCourse,endTurn1,endTurn2,sel,enemy,fpT,spT,cT1,cT2;
+        sf::Sprite gameBackground,gameInterface,gameMenu,gameGrind,gameCursor,aCell,gameEndTurn,cSel,cEnemy,cpT,cTc;
         menu1.loadFromFile("gameInterface/menu.png");
+
+        fpT.loadFromFile("gameInterface/fpTurn.png");
+        spT.loadFromFile("gameInterface/spTurn.png");
 
         enemy.loadFromFile("gameInterface/enemyCell.png");
 
@@ -493,13 +887,23 @@ void gameClient(sf::RenderWindow & window,char * mapName){
         grind.loadFromFile("maps/grind.png");
         endTurn1.loadFromFile("gameInterface/endTurn.png");
         endTurn2.loadFromFile("gameInterface/endTurnConfirmed.png");
+        cT1.loadFromFile("gameInterface/cTank.png");
+        cT2.loadFromFile("gameInterface/cTankC.png");
         //test
 
-        addUnit(&map,window,0,TANK,10,4);
+        addUnit(&map,window,0,TANK,15,0);
 
-        addUnit(&map,window,1,TANK,8,4);
+        addUnit(&map,window,0,TANK,12,0);
 
-        addUnit(&map,window,1,TANK,6,5);
+        addUnit(&map,window,0,TANK,9,0);
+
+        addUnit(&map,window,1,TANK,27,18);
+
+        addUnit(&map,window,1,TANK,30,18);
+
+        addUnit(&map,window,1,TANK,33,18);
+
+        cpT.setPosition(130,0);
         //test
 
 
@@ -523,6 +927,7 @@ void gameClient(sf::RenderWindow & window,char * mapName){
         cEnemy.setTexture(enemy);
         gameCursor.setTexture(cursor);
 
+        drawMinMap(window,currentPlayerTurn,&map);
 
 
 
@@ -533,7 +938,7 @@ while (window.isOpen()){
 
          mouseEvents(window,&map);
 
-         menu=gameSelection(window,gameMenu,menu1,menu2,gameEndTurn,endTurn1,endTurn2);
+         menu=gameSelection(window,gameMenu,menu1,menu2,gameEndTurn,endTurn1,endTurn2,cTc,cT1,cT2);
 
          gameBackground.setPosition(map.displacementX,map.displacementY);
 
@@ -541,10 +946,11 @@ while (window.isOpen()){
 
          gameMenu.setPosition(1700,0);
          gameEndTurn.setPosition(1500,5);
+         cTc.setPosition(1680,750);
          //aCell.setPosition(400,400);
 
 
-         selectUnit(&map,window,cSel,&select);
+         selectUnit(&map,window,cSel,&select,currentPlayerTurn);
 
         if(select.status==1){
         cSel.setPosition(select.cell->X,select.cell->Y);
@@ -558,6 +964,33 @@ while (window.isOpen()){
                         break;
                     }
           }
+
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&menu>=3){
+                    //if(pauseMenu(window)==0){
+                     //   break;
+                    //}
+                    createUnit(&map,&players,currentPlayerTurn,menu,window,&select,gameBackground,gameInterface,gameMenu,gameEndTurn,cTc);
+          }
+
+           if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&menu==2){
+
+                    if(currentPlayerTurn==0){
+                            currentPlayerTurn=1;
+                            deleteSelect(&select);
+                            endTurn(&map);
+
+                    }else{
+
+                    if(currentPlayerTurn==1){
+                            currentPlayerTurn=0;
+                             deleteSelect(&select);
+                              endTurn(&map);
+                    }}
+
+                    Sleep(600);
+          }
+
+
 
           if (sf::Mouse::isButtonPressed(sf::Mouse::Right)){
 
@@ -586,13 +1019,33 @@ while (window.isOpen()){
         }
         if(select.status==1){
                 window.draw(cSel);
-                findWay(&map,window,&select,aCell,cEnemy,&gCur,gameBackground,gameInterface,gameMenu,gameEndTurn);
+                findWay(&map,window,&select,aCell,cEnemy,&gCur,gameBackground,gameInterface,gameMenu,gameEndTurn,currentPlayerTurn,cTc);
 
         }
         window.draw(gameInterface);
+
+        if(select.status==1){
+           pData(window,&select);
+        }
+
+
+
         window.draw(gameMenu);
         window.draw(gameEndTurn);
+
+        drawMinMap(window,currentPlayerTurn,&map);
+
+
+
+
+        drawPlayer(window,currentPlayerTurn);
+
+        window.draw(cTc);
+
+
+
         window.display();
+
 
 
 

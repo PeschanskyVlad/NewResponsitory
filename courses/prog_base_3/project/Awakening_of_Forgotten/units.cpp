@@ -7,6 +7,7 @@ unit_t * self = (unit_t*)malloc(sizeof(unit_t));
 
 sf::Texture tmpTexture;
 strcpy(self->name,"Crucio");
+strcpy(self->type,"Tank");
 strcpy(self->sprites.path[0],"units/tank/tank0.png");
 strcpy(self->sprites.path[1],"units/tank/tank1.png");
 
@@ -20,6 +21,17 @@ strcpy(self->sprites.path[6],"units/tank/tank6.png");
 strcpy(self->sprites.path[7],"units/tank/tank7.png");
 
 strcpy(self->sprites.path[8],"units/tank/tankB.png");
+strcpy(self->sprites.path[9],"units/tank/tankP.png");
+strcpy(self->sprites.path[10],"units/tank/tankA.png");
+
+strcpy(self->sprites.path[11],"units/tank/tankF0.png");
+strcpy(self->sprites.path[12],"units/tank/tankF1.png");
+strcpy(self->sprites.path[13],"units/tank/tankF2.png");
+strcpy(self->sprites.path[14],"units/tank/tankF3.png");
+strcpy(self->sprites.path[15],"units/tank/tankF4.png");
+strcpy(self->sprites.path[16],"units/tank/tankF5.png");
+strcpy(self->sprites.path[17],"units/tank/tankF6.png");
+strcpy(self->sprites.path[18],"units/tank/tankF7.png");
 
 //strcpy(self->sprites.path[4],"units/tank/tankD.png");
 
@@ -33,11 +45,16 @@ self->aRange=4;
 
 self->armor=3;
 
-self->dmg=10;
+self->dmg=30;
 
 self->hp=50;
 
+if(player == 0){
 self->direction = 2;
+}
+else{
+self->direction = 6;
+}
 
 return self;
 
