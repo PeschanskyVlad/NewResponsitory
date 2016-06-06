@@ -394,7 +394,7 @@
 1464636864 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
 	"mainMenuHeader.h"
 
-1465230146 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
+1465240628 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
 	"mainMenuHeader.h"
 
 1464637703 source:e:\kursach\awakening_of_forgotten\gamemenu.cpp
@@ -407,7 +407,7 @@
 	<windows.h>
 	<string.h>
 
-1465225514 e:\kursach\awakening_of_forgotten\gameclient.h
+1465234874 e:\kursach\awakening_of_forgotten\gameclient.h
 	"mainMenuHeader.h"
 	<math.h>
 	<string>
@@ -1506,7 +1506,7 @@
 	"gameClient.h"
 	"mainMenuHeader.h"
 
-1465222176 source:e:\kursach\awakening_of_forgotten\units.cpp
+1465241099 source:e:\kursach\awakening_of_forgotten\units.cpp
 	"mainMenuHeader.h"
 	"gameClient.h"
 

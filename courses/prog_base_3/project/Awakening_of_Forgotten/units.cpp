@@ -40,6 +40,7 @@ self->player = player;
 
 self->aPoints=3;
 self->cPoints=3;
+self->cost = 200;
 
 self->aRange=4;
 
@@ -57,6 +58,24 @@ self->direction = 6;
 }
 
 return self;
+
+}
+
+object_t * newOP(){
+
+    object_t * self = (object_t*)malloc(sizeof(object_t));
+    self->currentPlayer=-1;
+    self->profit=50;
+    self->type=0;
+
+
+    strcpy(self->sprites.path[0],"objects/OP0.png");
+     strcpy(self->sprites.path[1],"objects/OP1.png");
+      strcpy(self->sprites.path[2],"objects/OP2.png");
+    strcpy(self->sprites.path[3],"objects/OP3.png");
+
+    return self;
+
 
 }
 

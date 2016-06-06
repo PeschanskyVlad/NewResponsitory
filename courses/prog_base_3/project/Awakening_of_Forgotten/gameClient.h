@@ -59,15 +59,10 @@ typedef struct sprite{
 
 
 typedef struct object{
-int status;
-int  process;
-char name[charLength];
-sf::Sprite face;
-sf::Sprite model;
-int hp;
-int damage;
-
-
+    int type;
+    sprite_t sprites;
+    int currentPlayer;
+    int profit;
 }object_t;
 
 typedef struct unit{
@@ -82,6 +77,7 @@ typedef struct unit{
     unsigned int dmg;
     unsigned int armor;
     int player;
+    int cost;
   //  int type;
 }unit_t;
 
@@ -129,6 +125,7 @@ int status;
 cell_t * cell;
 }cursor_t;
 
+object_t * newOP();
 
 /*
 void cameraLeft(gameMap_t * self);
