@@ -33,7 +33,7 @@ strcpy(self->sprites.path[16],"units/tank/tankF5.png");
 strcpy(self->sprites.path[17],"units/tank/tankF6.png");
 strcpy(self->sprites.path[18],"units/tank/tankF7.png");
 
-//strcpy(self->sprites.path[4],"units/tank/tankD.png");
+
 
 
 self->player = player;
@@ -44,7 +44,7 @@ self->cost = 200;
 
 self->aRange=4;
 
-self->armor=3;
+self->armor=10;
 
 self->dmg=30;
 
@@ -78,6 +78,64 @@ object_t * newOP(){
 
 
 }
+
+
+unit_t * newBuggy(int player){
+
+unit_t * self = (unit_t*)malloc(sizeof(unit_t));
+
+sf::Texture tmpTexture;
+strcpy(self->name,"Raider");
+strcpy(self->type,"Buggy");
+strcpy(self->sprites.path[0],"units/buggy/buggy0.png");
+strcpy(self->sprites.path[1],"units/buggy/buggy1.png");
+
+strcpy(self->sprites.path[2],"units/buggy/buggy2.png");
+strcpy(self->sprites.path[3],"units/buggy/buggy3.png");
+
+strcpy(self->sprites.path[4],"units/buggy/buggy4.png");
+strcpy(self->sprites.path[5],"units/buggy/buggy5.png");
+
+strcpy(self->sprites.path[6],"units/buggy/buggy6.png");
+strcpy(self->sprites.path[7],"units/buggy/buggy7.png");
+
+strcpy(self->sprites.path[8],"units/buggy/buggyB.png");
+strcpy(self->sprites.path[9],"units/buggy/buggyP.png");
+strcpy(self->sprites.path[10],"units/buggy/buggyA.png");
+
+strcpy(self->sprites.path[11],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[12],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[13],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[14],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[15],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[16],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[17],"units/buggy/buggyF0.png");
+strcpy(self->sprites.path[18],"units/buggy/buggyF0.png");
+
+self->player = player;
+self->aPoints=5;
+self->cPoints=5;
+self->cost = 150;
+
+self->aRange=3;
+
+self->armor=5;
+
+self->dmg=25;
+
+self->hp=35;
+
+if(player == 0){
+self->direction = 2;
+}
+else{
+self->direction = 6;
+}
+
+return self;
+
+}
+
 
 void deleteUnit(unit_t * self){
     free(self);

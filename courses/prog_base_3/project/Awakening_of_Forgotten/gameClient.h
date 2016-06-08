@@ -25,7 +25,7 @@
 #define pathCount 20
 
 
- enum Unit{ TANK , MARINE };
+ enum Unit{ TANK , BUGGY };
 
  enum Turn{PLAYER1_TURN,PLAYER2_TURN};
 
@@ -127,16 +127,16 @@ cell_t * cell;
 
 object_t * newOP();
 
-/*
-void cameraLeft(gameMap_t * self);
-void cameraRight(gameMap_t * self);
-void cameraUp(gameMap_t * self);
-void cameraDown(gameMap_t * self);
-void cameraMouseMove(sf::RenderWindow & window,gameMap_t * self);
-void mouseEvents(sf::RenderWindow & window,gameMap_t * self);*/
+
 
 unit_t * newTank(int player);
+unit_t * newBuggy(int player);
 void deleteUnit(unit_t * self);
+
+typedef
+    void
+    (*end_fn)
+    (sf::RenderWindow & window,sf::Texture & endGame);
 
 
 int calculateLength(std::string path);
@@ -144,6 +144,31 @@ int calculateLength(std::string path);
 std::string pathFind( const int & xStart, const int & yStart,
                  const int & xFinish, const int & yFinish ,gameMap_t * self);
 
+                 void drawUnits(gameMap_t * self,sf::RenderWindow & window);
+                 void drawMinMap(sf::RenderWindow & window,int currentPlayer,gameMap_t * self);
+                 void drawPlayer(sf::RenderWindow & window,int player,player_t * players);
+
+                 void setSelect(cell_t * cell, selection_t * self);
+
+                void deleteSelect(selection_t * self);
+
+                void getResources(gameMap_t * self, int cPlayer,player_t * players);
+                void getOP(gameMap_t * self,player_t * players);
+               // int compare(char self);
+
+
+void createUnit(gameMap_t * self,
+                player_t * player,
+                int cPlayer,
+                int type,
+                sf::RenderWindow & window,
+                selection_t * cUnit,
+                sf::Sprite & gameBackground,
+                sf::Sprite & gameInterface,
+                sf::Sprite & gameMenu,
+                sf::Sprite & gameEndTurn,
+                sf::Sprite & cTc,
+                sf::Sprite & cBc);
 
 
 #endif // GAMECLIENT_H_INCLUDED

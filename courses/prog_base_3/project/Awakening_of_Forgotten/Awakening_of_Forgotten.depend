@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1465161636 source:e:\kursach\awakening_of_forgotten\main.cpp
+1465343695 source:e:\kursach\awakening_of_forgotten\main.cpp
 	"mainMenuHeader.h"
 	"gameClient.h"
 
@@ -391,11 +391,12 @@
 	<string>
 	<vector>
 
-1464636864 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
+1465343695 source:e:\kursach\awakening_of_forgotten\mainmenu.cpp
 	"mainMenuHeader.h"
 
-1465240628 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
+1465341426 source:e:\kursach\awakening_of_forgotten\gameclient.cpp
 	"mainMenuHeader.h"
+	"AI.h"
 
 1464637703 source:e:\kursach\awakening_of_forgotten\gamemenu.cpp
 	"mainMenuHeader.h"
@@ -407,7 +408,7 @@
 	<windows.h>
 	<string.h>
 
-1465234874 e:\kursach\awakening_of_forgotten\gameclient.h
+1465344814 e:\kursach\awakening_of_forgotten\gameclient.h
 	"mainMenuHeader.h"
 	<math.h>
 	<string>
@@ -1506,17 +1507,29 @@
 	"gameClient.h"
 	"mainMenuHeader.h"
 
-1465241099 source:e:\kursach\awakening_of_forgotten\units.cpp
+1465341565 source:e:\kursach\awakening_of_forgotten\units.cpp
 	"mainMenuHeader.h"
 	"gameClient.h"
 
-1464883162 source:e:\kursach\awakening_of_forgotten\minw.cpp
+1465345671 source:e:\kursach\awakening_of_forgotten\minw.cpp
 	"gameClient.h"
-	"mainMenuHeader.h"
+	"header.h"
 	<iostream>
 	<iomanip>
 	<queue>
 	<string>
 	<math.h>
 	<ctime>
+
+1465334545 source:e:\kursach\awakening_of_forgotten\ai.cpp
+	"AI.h"
+	"gameClient.h"
+
+1465329372 e:\kursach\awakening_of_forgotten\ai.h
+	"gameClient.h"
+	"mainMenuHeader.h"
+
+1465344187 e:\kursach\awakening_of_forgotten\libminpath.a
+
+1465344184 e:\kursach\awakening_of_forgotten\header.h
 

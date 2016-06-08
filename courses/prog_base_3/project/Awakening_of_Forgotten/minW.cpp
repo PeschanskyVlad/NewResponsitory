@@ -1,5 +1,6 @@
 #include "gameClient.h"
-#include "mainMenuHeader.h"
+#include "header.h"
+//#include "mainMenuHeader.h"
 
 // Astar.cpp
 // http://en.wikipedia.org/wiki/A*
@@ -231,6 +232,7 @@ int calculateLength(string path){
    if(path[i] == '1' || path[i] == '3' || path[i] == '5' || path[i] == '7'){
         pLength+=2;
     }
+    //pLength+=compare(path[i]);
 
     }
     return pLength;

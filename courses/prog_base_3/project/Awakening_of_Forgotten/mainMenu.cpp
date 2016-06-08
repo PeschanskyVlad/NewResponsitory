@@ -150,27 +150,6 @@ void mainMenu(sf::RenderWindow & window){
       window.display();
       menuNum=0;
     }
-/*
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-    while (win.isOpen())
-    {
-        sf::Event event;
-        while (win.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-            {
-                win.close();
-            }
-        }
-
-        win.clear();
-        win.draw(shape);
-        win.display();
-    }
-
-    return;*/
 
 
 }

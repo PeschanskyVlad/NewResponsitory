@@ -1,49 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="AI.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="342" />
+		</Cursor>
+	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="75" topLine="0" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="mainMenu.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2862" topLine="98" />
+			<Cursor1 position="639" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="gameMenu.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2613" topLine="45" />
+			<Cursor1 position="0" topLine="112" />
 		</Cursor>
 	</File>
-	<File name="minW.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<File name="minW.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3401" topLine="67" />
+			<Cursor1 position="0" topLine="204" />
 		</Cursor>
 	</File>
-	<File name="process.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+	<File name="units.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="56" topLine="0" />
+			<Cursor1 position="0" topLine="90" />
 		</Cursor>
 	</File>
-	<File name="units.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+	<File name="AI.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1923" topLine="47" />
+			<Cursor1 position="705" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="mainMenuHeader.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+	<File name="mainMenuHeader.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="307" topLine="0" />
+			<Cursor1 position="485" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="gameClient.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+	<File name="gameClient.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="37590" topLine="1108" />
+			<Cursor1 position="28653" topLine="822" />
 		</Cursor>
 	</File>
-	<File name="gameClient.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<File name="gameClient.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="9" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="426" topLine="21" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
