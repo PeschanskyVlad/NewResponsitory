@@ -6,5 +6,6 @@
 #include <stdbool.h>
 
 int getNumber(const char * str);
+void test(void) ;
 
 #endif // STR_H_INCLUDED
