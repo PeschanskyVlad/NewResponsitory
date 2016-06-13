@@ -20,7 +20,22 @@ int main() {
    List_t * books = getBooksList(Library);
    printList(books);
 
-   bookAddReader(Library,"WarCraft","Vlad");
+   addBookReader(Library,"WarCraft","Vlad");
+    //printList(books);
+   bookDeleteReader(Library,"WarCraft");
+   addBookReader(Library,"WarCraft","Tom");
+   printList(books);
+
+   List_t tmpL = getNeededBooks(Library,0);
+   printList(tmpL);
+
+   List_t tmpL1 = getOldBooks(Library,1);
+
+   printList(tmpL1);
+
+
+
+   // printList(books);
 
 
    return 0;

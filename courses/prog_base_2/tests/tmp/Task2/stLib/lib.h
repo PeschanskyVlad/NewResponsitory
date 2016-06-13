@@ -17,7 +17,7 @@ void deleteBook(library_t * self,const char * name);
 List_t * getBooksList(library_t * self);
 
 book_t * newBookchangeParam(const char * name,int status, int curDaysUsed, const char * curDate, List_t * users);
-void bookAddReader(library_t * self,const char * name,const char * readerName);
+void addBookReader(library_t * self,const char * name,const char * readerName);
 void bookDeleteReader(library_t * self,const char * name);
 List_t * getNeededBooks(library_t * self,int status);
 List_t * getOldBooks(library_t * self,int days);

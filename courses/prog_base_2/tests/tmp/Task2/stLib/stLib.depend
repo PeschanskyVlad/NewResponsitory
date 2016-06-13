@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1465815815 source:e:\zalic\task2\stlib\main.c
+1465817157 source:e:\zalic\task2\stlib\main.c
 	<stdlib.h>
 	<stdio.h>
 	"lib.h"
@@ -11,6 +11,6 @@
 1463956095 e:\zalic\task2\stlib\list.h
 	<stdlib.h>
 
-1465815815 e:\zalic\task2\stlib\lib.h
+1465816649 e:\zalic\task2\stlib\lib.h
 	"list.h"
 

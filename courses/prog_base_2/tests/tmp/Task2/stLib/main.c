@@ -81,47 +81,56 @@ printList(self->book);
 }
 
 void printList(List_t * self){
-
     for(int i = 0;i<List_getSize(self);i++){
             book_t * tmpBook = List_get(self,i,NULL);
-            printf("\nBook number: %i\nBook name: %s",i+1,tmpBook->name);
+            printf("\nBook number: %i\nBook name: %s\ncurDaysUsed: %i\n",i+1,tmpBook->name,tmpBook->curDaysUsed);
             if(tmpBook->status == 1){
-                user_t * tmpUser = List_get(tmpBook->users,List_getSize(tmpBook->users),NULL);
-                printf("\nUser: %s",tmpUser->name);
+                user_t * tmpUser = List_get(tmpBook->users,List_getSize(tmpBook->users)-1,NULL);
+                printf("CurrentUser: %s\n",tmpUser->name);
+
             }
     }
     puts("");
 }
 
-void bookAddReader(library_t * self,const char * name,const char * readerName){
-    for(int i = 0;i<List_getSize(self);i++){
-            book_t * tmpBook = List_get(self,i,NULL);
+void addBookReader(library_t * self,const char * name,const char * readerName){
+
+for(int i = 0;i<List_getSize(self->book);i++){
+            book_t * tmpBook = List_get(self->book,i,NULL);
             if(strcmp(tmpBook->name,name)==0 && tmpBook->status == 0){
 
                 user_t * tmpUser = newUser(readerName);
-                List_add(tmpBook->users,List_getSize(tmpBook->users),tmpUser);
+                //List_add(tmpBook->users,List_getSize(tmpBook->users)-1,tmpUser);
 
-                book_t * nB = newBookchangeParam(name,1,tmpBook->curDaysUsed+1,"day",tmpBook->users);
+                List_t tmpList = tmpBook->users;
+                List_add(tmpList,List_getSize(tmpList),tmpUser);
+
+
+                //user_t * tmpUser1 = List_get(tmpList,List_getSize(tmpList)-1,NULL);
+                //puts(tmpUser1->name);
+
+                book_t * nB = newBookchangeParam(name,1,tmpBook->curDaysUsed,"day",tmpList);
                 List_remove(self->book,i,NULL);
-
                 List_add(self->book,i,nB);
+
                 return;
             }
     }
+
 }
 
 
 
 void bookDeleteReader(library_t * self,const char * name){
 
-        for(int i = 0;i<List_getSize(self);i++){
-            book_t * tmpBook = List_get(self,i,NULL);
+       // printf("ListSize: %i",List_getSize(self));
+        for(int i = 0;i<List_getSize(self->book);i++){
+             book_t * tmpBook = List_get(self->book,i,NULL);
             if(strcmp(tmpBook->name,name)==0){
-
                     if(tmpBook->status == 1){
-                            book_t * nB = newBookchangeParam(name,0,tmpBook->curDaysUsed," ",tmpBook->users);
-                            List_remove(self->book,i,NULL);
-                            List_add(self->book,i,nB);
+                        book_t * nB = newBookchangeParam(name,0,tmpBook->curDaysUsed+1,"",tmpBook->users);
+                        List_remove(self->book,i,NULL);
+                        List_add(self->book,i,nB);
                             return;
 
                     }else{
@@ -134,24 +143,29 @@ void bookDeleteReader(library_t * self,const char * name){
 
 List_t * getNeededBooks(library_t * self,int status){
     List_t neededList = List_new();
-     for(int i = 0;i<List_getSize(self);i++){
-            book_t * tmpBook = List_get(self,i,NULL);
-            if(tmpBook->status == status){
-                List_add(neededList,List_getSize(neededList),tmpBook);
-            }
+
+      for(int i = 0;i<List_getSize(self->book);i++){
+             book_t * tmpBook = List_get(self->book,i,NULL);
+
+                    if(tmpBook->status == status){
+                       List_add(neededList,List_getSize(neededList),tmpBook);
+
+                    }
+
     }
-    return getNeededBooks;
+
+    return neededList;
 }
 
 List_t * getOldBooks(library_t * self,int days){
     List_t neededList = List_new();
-     for(int i = 0;i<List_getSize(self);i++){
-            book_t * tmpBook = List_get(self,i,NULL);
+     for(int i = 0;i<List_getSize(self->book);i++){
+             book_t * tmpBook = List_get(self->book,i,NULL);
             if(tmpBook->curDaysUsed >= days){
                 List_add(neededList,List_getSize(neededList),tmpBook);
             }
     }
-    return getNeededBooks;
+    return neededList;
 }
 
 
