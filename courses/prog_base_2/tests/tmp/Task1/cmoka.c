@@ -34,6 +34,12 @@ static void Test_str_module___put_str_random_str___return_int_0(void **state)
     assert_int_equal(tmpInt, 0);
 }
 
+static void Test_str_module___put_null_str___return_int_0(void **state)
+{
+   int tmpInt = getNumber("");
+    assert_int_equal(tmpInt, 0);
+}
+
 
 
 void test(void) {
@@ -44,6 +50,7 @@ void test(void) {
         cmocka_unit_test(Test_str_module___put_str_started_and_finished_by_word___return_int_90),
         cmocka_unit_test(Test_str_module___put_str_with_only_negative_numbers___return_negative_int_210),
         cmocka_unit_test(Test_str_module___put_str_random_str___return_int_0),
+        cmocka_unit_test(Test_str_module___put_null_str___return_int_0),
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }

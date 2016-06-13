@@ -1,13 +1,23 @@
 # depslib dependency file v1.0
-1465809385 source:e:\zalic\task1\main.c
+1465809865 source:e:\zalic\task1\main.c
 	<stdio.h>
 	<stdlib.h>
 
-1465809179 source:e:\zalic\task1\str.c
+1465809865 source:e:\zalic\task1\str.c
 	"str.h"
 
 1465809385 e:\zalic\task1\str.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
+
+1465809865 source:e:\zalic\task1\cmoka.c
+	"str.h"
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+
+1426175038 c:\program files (x86)\cmocka\include\cmocka.h
 
