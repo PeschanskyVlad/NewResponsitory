@@ -76,6 +76,11 @@ List_t * getBooksList(library_t * self){
 return self->book;
 }
 
+
+void freeLibrary(library_t * self){
+free(self);
+}
+
 void printBooks(library_t * self){
 printList(self->book);
 }

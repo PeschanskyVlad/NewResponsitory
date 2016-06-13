@@ -21,7 +21,6 @@ int main() {
    printList(books);
 
    addBookReader(Library,"WarCraft","Vlad");
-    //printList(books);
    bookDeleteReader(Library,"WarCraft");
    addBookReader(Library,"WarCraft","Tom");
    printList(books);
@@ -32,6 +31,8 @@ int main() {
    List_t tmpL1 = getOldBooks(Library,1);
 
    printList(tmpL1);
+
+   freeLibrary(Library);
 
 
 

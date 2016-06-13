@@ -21,5 +21,6 @@ void addBookReader(library_t * self,const char * name,const char * readerName);
 void bookDeleteReader(library_t * self,const char * name);
 List_t * getNeededBooks(library_t * self,int status);
 List_t * getOldBooks(library_t * self,int days);
+void freeLibrary(library_t * self);
 
 #endif // LIB_H_INCLUDED
